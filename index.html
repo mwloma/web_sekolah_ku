@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMA Negeri 1 Cipta Cendekia (Smancis)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS Terpisah -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-indigo-600 text-white p-2.5 rounded-xl font-black text-xl shadow-lg shadow-indigo-200">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tight text-slate-900 block">SMANCIS</span>
+                        <span class="text-xs text-indigo-600 font-semibold tracking-wide uppercase">SMA N 1 Cipta Cendekia</span>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                    <a href="#beranda" class="hover:text-indigo-600 transition">Beranda</a>
+                    <a href="#tentang" class="hover:text-indigo-600 transition">Tentang</a>
+                    <a href="#fasilitas" class="hover:text-indigo-600 transition">Fasilitas</a>
+                    <a href="#ekskul" class="hover:text-indigo-600 transition">Ekstrakurikuler</a>
+                    <a href="#ppdb" class="hover:text-indigo-600 transition">PPDB</a>
+                    <a href="#kontak" class="hover:text-indigo-600 transition">Kontak</a>
+                </nav>
+                <div class="hidden sm:block">
+                    <a href="#ppdb" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md shadow-indigo-200 transition">
+                        Daftar Sekarang
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden text-slate-700 focus:outline-none text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2">
+            <a href="#beranda" class="block py-2 text-slate-600 hover:text-indigo-600">Beranda</a>
+            <a href="#tentang" class="block py-2 text-slate-600 hover:text-indigo-600">Tentang</a>
+            <a href="#fasilitas" class="block py-2 text-slate-600 hover:text-indigo-600">Fasilitas</a>
+            <a href="#ekskul" class="block py-2 text-slate-600 hover:text-indigo-600">Ekstrakurikuler</a>
+            <a href="#ppdb" class="block py-2 text-slate-600 hover:text-indigo-600">PPDB</a>
+            <a href="#kontak" class="block py-2 text-slate-600 hover:text-indigo-600">Kontak</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative overflow-hidden bg-gradient-to-b from-indigo-900 via-slate-900 to-slate-950 text-white py-24 lg:py-32">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-block bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">
+                Sekolah Unggulan & Berstandar Global
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 max-w-4xl mx-auto leading-tight">
+                Cerdas Berkarakter, <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Menginspirasi Dunia.</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-300 mb-10 max-w-2xl mx-auto font-light">
+                Memadukan keunggulan akademik, pembentukan karakter luhur, dan adaptasi teknologi modern guna mencetak generasi emas bangsa.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#tentang" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-indigo-900/50 transition">
+                    Jelajahi Profil
+                </a>
+                <a href="#fasilitas" class="bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold px-8 py-4 rounded-xl transition">
+                    Lihat Fasilitas
+                </a>
+            </div>
+
+            <!-- Kilas Prestasi Bar -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left">
+                <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-2xl backdrop-blur">
+                    <div class="text-amber-400 text-2xl mb-2">🥇</div>
+                    <h3 class="font-bold text-white text-base">Juara 1 OSN Astronomi 2026</h3>
+                    <p class="text-xs text-slate-400 mt-1">Tingkat Nasional membanggakan nama sekolah.</p>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-2xl backdrop-blur">
+                    <div class="text-amber-400 text-2xl mb-2">🥇</div>
+                    <h3 class="font-bold text-white text-base">Juara Umum Festival Musik</h3>
+                    <p class="text-xs text-slate-400 mt-1">Ajang kompetisi remaja tingkat provinsi.</p>
+                </div>
+                <div class="bg-slate-800/50 border border-slate-700/60 p-5 rounded-2xl backdrop-blur">
+                    <div class="text-emerald-400 text-2xl mb-2">🎓</div>
+                    <h3 class="font-bold text-white text-base">85% Lulusan ke PTN Favorit</h3>
+                    <p class="text-xs text-slate-400 mt-1">UI, ITB, UGM, dan Airlangga via SNBP/SNBT.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang & Visi Misi -->
+    <section id="tentang" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-wider">Tentang Smancis</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-2 mb-6">Membangun Masa Depan Gemilang Sejak 1998</h2>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    SMA Negeri 1 Cipta Cendekia (Smancis) adalah sekolah menengah atas negeri model dan unggulan yang berkomitmen mencetak generasi emas bangsa. Berdiri sejak tahun 1998, Smancis memadukan keunggulan akademik, pembentukan karakter luhur, dan adaptasi teknologi modern guna menghadapi tantangan global.
+                </p>
+                <!-- Sambutan Kepala Sekolah -->
+                <div class="bg-indigo-50 border-l-4 border-indigo-600 p-6 rounded-r-2xl">
+                    <p class="italic text-slate-700 text-sm mb-3">
+                        "Kami percaya setiap anak memiliki potensi terbaiknya. Di Smancis, kami tidak hanya mengajar, tetapi menginspirasi dan mengantarkan mimpi mereka menuju gerbang kesuksesan..."
+                    </p>
+                    <span class="font-bold text-indigo-900 text-xs block">— Kepala Sekolah SMAN 1 Cipta Cendekia</span>
+                </div>
+            </div>
+            
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100">
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Visi Kami</h3>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-indigo-900 font-semibold mb-8 italic">
+                    "Menjadi pusat pendidikan unggulan yang religius, berkarakter, berdaya saing global, dan adaptif terhadap kemajuan iptek."
+                </div>
+                
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Misi Utama</h3>
+                <ul class="space-y-3 text-sm text-slate-600">
+                    <li class="flex items-start space-x-3"><i class="fa-solid fa-check text-indigo-600 mt-1"></i><span>Menyelenggarakan pembelajaran bermutu secara efektif untuk mengoptimalkan potensi akademik dan non-akademik siswa.</span></li>
+                    <li class="flex items-start space-x-3"><i class="fa-solid fa-check text-indigo-600 mt-1"></i><span>Menanamkan nilai keagamaan, budi pekerti luhur, dan jiwa nasionalisme dalam kehidupan sehari-hari.</span></li>
+                    <li class="flex items-start space-x-3"><i class="fa-solid fa-check text-indigo-600 mt-1"></i><span>Mendorong penguasaan teknologi informasi dan bahasa asing sebagai bekal bersaing di tingkat internasional.</span></li>
+                    <li class="flex items-start space-x-3"><i class="fa-solid fa-check text-indigo-600 mt-1"></i><span>Memfasilitasi ruang kreativitas inklusif untuk mengembangkan bakat kepemimpinan, seni, dan olahraga.</span></li>
+                    <li class="flex items-start space-x-3"><i class="fa-solid fa-check text-indigo-600 mt-1"></i><span>Membangun kemitraan kuat dengan perguruan tinggi terbaik serta industri global demi masa depan lulusan.</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas (Interaktif Tab) -->
+    <section id="fasilitas" class="bg-slate-100 py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-indigo-600 font-semibold text-sm uppercase tracking-wider">Fasilitas Modern</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Dukungan Terbaik untuk Kenyamanan Belajar</h2>
+                <p class="text-slate-600 mt-2">Infrastruktur lengkap berstandar modern untuk mengoptimalkan potensi siswa.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex justify-center space-x-2 sm:space-x-4 mb-10">
+                <button onclick="switchTab('akademik')" id="btn-akademik" class="tab-btn px-6 py-3 rounded-xl font-semibold text-sm transition bg-indigo-600 text-white shadow-md shadow-indigo-200">Akademik & Lab</button>
+                <button onclick="switchTab('olahraga')" id="btn-olahraga" class="tab-btn px-6 py-3 rounded-xl font-semibold text-sm transition bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">Olahraga & Seni</button>
+                <button onclick="switchTab('penunjang')" id="btn-penunjang" class="tab-btn px-6 py-3 rounded-xl font-semibold text-sm transition bg-white text-slate-600 border border-slate-200 hover:bg-slate-50">Penunjang Kampus</button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="content-akademik" class="tab-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"><h4 class="font-bold text-slate-900 mb-2"><i class="fa-solid fa-desktop text-indigo-600 mr-2"></i> Ruang Kelas Digital</h4><p class="text-xs text-slate-600">Ber-AC, Smart TV/Proyektor, & Wi-Fi super cepat.</p></div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"><h4 class="font-bold text-slate-900 mb-2"><i class="fa-solid fa-server text-indigo-600 mr-2"></i> Lab Komputer</h4><p class="text-xs text-slate-600">Main Lab (CBT & Coding) & Multimedia Lab (Desain/Animasi).</p></div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"><h4 class="font-bold text-slate-900 mb-2"><i class="fa-solid fa-flask text-indigo-600 mr-2"></i> Lab IPA Terpisah</h4><p class="text-xs text-slate-600">Fisika, Kimia (Lemari Asam), Biologi (Mikroskop Digital), & Riset.</p></div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"><h4 class="font-bold text-slate-900 mb-2"><i class="fa-solid fa-book-open text-indigo-600 mr-2"></i> Perpus Widya Aksara</h4><p class="text-xs text-slate-600">Estetik 2 lantai dengan ribuan buku fisik & E-Library.</p></div>
+            </div>
+
+            <div id="content-olahraga" class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"><h4 class="font-bold text-slate-900 mb-2"><i class="fa-solid fa-basketball text-indigo-600 mr-2"></i> Smancis Sports Center</h4><p class="text-xs text-slate-600">Indoor basket, futsal, voli, dan lintasan lari terpadu.</p></div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm"><h4 class="font-bold text-slate-900 mb-2"><i class="fa-solid fa-building-columns text-indigo-600 mr-2"></i> Auditorium Utama</h4><p class="text-xs text-slate-600">Gedung serbaguna berkapasitas 1.000 orang untuk acara besar.</p></div>
+                <div class="bg
