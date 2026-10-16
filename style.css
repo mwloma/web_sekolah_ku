@@ -1,0 +1,126 @@
+/* ========================================
+   TEMA HIJAU - WEBSITE SMANCIS
+======================================== */
+
+:root {
+    --hijau-tua: #064e3b;
+    --hijau-utama: #047857;
+    --hijau-cerah: #10b981;
+    --hijau-muda: #d1fae5;
+    --putih-hijau: #f0fdf4;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--putih-hijau);
+    color: #1f2937;
+}
+
+/* Navbar */
+header {
+    border-bottom-color: #d1fae5 !important;
+}
+
+header a {
+    transition: color 0.25s ease;
+}
+
+/* Tombol */
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #34d399;
+    outline-offset: 3px;
+}
+
+/* Kartu */
+.card-smancis {
+    background: #ffffff;
+    border: 1px solid #d1fae5;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.card-smancis:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(6, 78, 59, 0.10);
+}
+
+/* Placeholder foto */
+.photo-placeholder {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #d1fae5,
+        #a7f3d0,
+        #ecfdf5
+    );
+    border: 1px dashed #059669;
+    border-radius: 16px;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Teks petunjuk pada placeholder */
+.photo-placeholder .photo-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #065f46;
+    text-align: center;
+    padding: 16px;
+    pointer-events: none;
+}
+
+/* Gambar profil sekolah */
+.photo-profile {
+    aspect-ratio: 4 / 3;
+}
+
+/* Gambar banner */
+.photo-banner {
+    aspect-ratio: 21 / 9;
+}
+
+/* Transisi kartu dan gambar */
+.photo-placeholder img {
+    transition: transform 0.4s ease;
+}
+
+.card-smancis:hover .photo-placeholder img {
+    transform: scale(1.04);
+}
+
+/* Tampilan HP */
+@media (max-width: 640px) {
+    .photo-banner {
+        aspect-ratio: 4 / 3;
+    }
+
+    .photo-placeholder {
+        border-radius: 12px;
+    }
+    }
