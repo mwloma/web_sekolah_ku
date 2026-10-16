@@ -14,50 +14,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
-  <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    .photo-placeholder {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      gap: .65rem;
-      color: #166534;
-      background: linear-gradient(
-        135deg,
-        rgba(220,252,231,.92),
-        rgba(240,253,244,.96)
-      );
-      border: 2px dashed #86efac;
-      border-radius: 1rem;
-      overflow: hidden;
-    }
-
-    .photo-placeholder i {
-      font-size: 2rem;
-    }
-
-    .photo-placeholder small {
-      color: #15803d;
-      font-size: .75rem;
-    }
-
-    .tab-btn.active {
-      background: #15803d;
-      color: white;
-      border-color: #15803d;
-      box-shadow: 0 8px 20px rgba(21,128,61,.18);
-    }
-
-    .tab-content[hidden] {
-      display: none;
-    }
-  </style>
 </head>
 
 <body class="bg-green-50/50 text-slate-800 antialiased">
@@ -98,30 +56,40 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section id="beranda" class="relative overflow-hidden bg-gradient-to-br from-green-950 via-green-900 to-emerald-800 py-16 text-white sm:py-24 lg:py-28">
-      <div class="absolute inset-0 opacity-15" style="background-image:radial-gradient(#bbf7d0 1px,transparent 1px);background-size:18px 18px"></div>
-      <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div>
-          <span class="mb-6 inline-flex rounded-full border border-green-300/30 bg-green-400/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-green-100">Sekolah Unggulan &amp; Berstandar Global</span>
+    <!-- Beranda / Hero Slider Otomatis -->
+    <section id="beranda" class="home-slider relative isolate overflow-hidden text-white">
+      <div class="slider-track" id="home-slider-track">
+        <div class="home-slide is-active" style="background-image:url('gambar/halaman_awal.jpg')" role="img" aria-label="Gedung SMA Negeri 1 Cipta Cendekia"></div>
+        <div class="home-slide" style="background-image:url('gambar/kegiatan-sekolah.jpg')" role="img" aria-label="Kegiatan siswa SMANCIS"></div>
+        <div class="home-slide" style="background-image:url('gambar/upacara-sekolah.jpg')" role="img" aria-label="Upacara sekolah SMANCIS"></div>
+      </div>
+      <div class="home-slider-overlay"></div>
+
+      <div class="relative z-10 mx-auto flex min-h-[520px] max-w-7xl items-center px-4 py-20 sm:px-6 sm:py-24 lg:min-h-[620px] lg:px-8">
+        <div class="max-w-3xl">
+          <span class="mb-6 inline-flex rounded-full border border-green-200/40 bg-green-500/20 px-4 py-2 text-xs font-bold uppercase tracking-widest text-green-100 backdrop-blur-sm">SMA Negeri 1 Cipta Cendekia</span>
           <h1 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">Cerdas Berkarakter, <span class="text-green-300">Menginspirasi Dunia.</span></h1>
-          <p class="mb-8 max-w-xl text-lg leading-relaxed text-green-50/85">Memadukan keunggulan akademik, pembentukan karakter luhur, dan adaptasi teknologi modern guna mencetak generasi emas bangsa.</p>
+          <p class="mb-8 max-w-2xl text-lg leading-relaxed text-green-50 sm:text-xl">Memadukan keunggulan akademik, pembentukan karakter luhur, dan adaptasi teknologi modern guna mencetak generasi emas bangsa.</p>
           <div class="flex flex-col gap-3 sm:flex-row">
             <a href="#tentang" class="rounded-xl bg-white px-7 py-4 text-center font-bold text-green-900 transition hover:bg-green-50">Jelajahi Profil <i class="fa-solid fa-arrow-right ml-2"></i></a>
-            <a href="#fasilitas" class="rounded-xl border border-green-200/40 bg-green-950/20 px-7 py-4 text-center font-bold text-white transition hover:bg-green-800">Lihat Fasilitas</a>
+            <a href="#fasilitas" class="rounded-xl border border-green-100/60 bg-green-950/30 px-7 py-4 text-center font-bold text-white backdrop-blur-sm transition hover:bg-green-800/80">Lihat Fasilitas</a>
           </div>
-          <div class="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
-            <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur"><div class="mb-2 text-2xl">🥇</div><h3 class="font-bold">Prestasi Akademik</h3><p class="mt-1 text-xs text-green-100/75">Mengembangkan potensi siswa.</p></div>
-            <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur"><div class="mb-2 text-2xl">🎨</div><h3 class="font-bold">Bakat &amp; Kreativitas</h3><p class="mt-1 text-xs text-green-100/75">Ruang tumbuh di luar kelas.</p></div>
-            <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur"><div class="mb-2 text-2xl">🎓</div><h3 class="font-bold">Siap Masa Depan</h3><p class="mt-1 text-xs text-green-100/75">Belajar dan berkarakter.</p></div>
+          <div class="mt-8 flex flex-wrap gap-3 text-sm font-semibold">
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-sm"><i class="fa-solid fa-medal mr-2 text-green-300"></i>Prestasi Akademik</span>
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-sm"><i class="fa-solid fa-palette mr-2 text-green-300"></i>Bakat &amp; Kreativitas</span>
+            <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-sm"><i class="fa-solid fa-graduation-cap mr-2 text-green-300"></i>Siap Masa Depan</span>
           </div>
-        </div>
-        <div>
-          
-          <img src="gambar/halaman_awal.jpg" alt="Gedung SMA Negeri 1 Cipta Cendekia" class="h-full min-h-[300px] w-full rounded-3xl object-cover">
-          
         </div>
       </div>
+
+      <button type="button" id="slide-prev" class="slider-arrow left-3 sm:left-6" aria-label="Gambar sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+      <button type="button" id="slide-next" class="slider-arrow right-3 sm:right-6" aria-label="Gambar berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="slider-dots" id="slider-dots" aria-label="Pilih gambar">
+        <button type="button" class="slider-dot is-active" aria-label="Tampilkan gambar 1" aria-current="true"></button>
+        <button type="button" class="slider-dot" aria-label="Tampilkan gambar 2"></button>
+        <button type="button" class="slider-dot" aria-label="Tampilkan gambar 3"></button>
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 z-10 h-1 bg-white/20"><div id="slider-progress" class="h-full w-0 bg-green-300"></div></div>
     </section>
 
     <!-- Tentang & visi misi -->
@@ -309,7 +277,62 @@
         content.classList.toggle('hidden', !show);
       });
     }));
-    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Slider beranda otomatis: berganti setiap 5 detik
+    const slides = Array.from(document.querySelectorAll('.home-slide'));
+    const dots = Array.from(document.querySelectorAll('.slider-dot'));
+    const progress = document.getElementById('slider-progress');
+    const slider = document.getElementById('beranda');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let currentSlide = 0;
+    let slideStartedAt = Date.now();
+    let sliderTimer;
+
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle('is-active', i === currentSlide));
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('is-active', i === currentSlide);
+        if (i === currentSlide) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+      slideStartedAt = Date.now();
+      if (progress) progress.style.width = '0%';
+    }
+
+    function startSlider() {
+      clearInterval(sliderTimer);
+      sliderTimer = setInterval(() => showSlide(currentSlide + 1), 5000);
+    }
+
+    document.getElementById('slide-prev').addEventListener('click', () => {
+      showSlide(currentSlide - 1);
+      startSlider();
+    });
+    document.getElementById('slide-next').addEventListener('click', () => {
+      showSlide(currentSlide + 1);
+      startSlider();
+    });
+    dots.forEach((dot, index) => dot.addEventListener('click', () => {
+      showSlide(index);
+      startSlider();
+    }));
+
+    if (!reducedMotion) {
+      startSlider();
+      setInterval(() => {
+        if (progress && !document.hidden) {
+          const percent = Math.min(100, ((Date.now() - slideStartedAt) / 5000) * 100);
+          progress.style.width = percent + '%';
+        }
+      }, 100);
+    }
+    slider.addEventListener('mouseenter', () => clearInterval(sliderTimer));
+    slider.addEventListener('mouseleave', () => { if (!reducedMotion) startSlider(); });
+    slider.addEventListener('focusin', () => clearInterval(sliderTimer));
+    slider.addEventListener('focusout', () => { if (!reducedMotion) startSlider(); });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
