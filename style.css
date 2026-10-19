@@ -1,8 +1,10 @@
+
 /* ========================================
    TEMA HIJAU - WEBSITE SMANCIS
 ======================================== */
 
 :root {
+    color-scheme: light;
     --hijau-tua: #064e3b;
     --hijau-utama: #047857;
     --hijau-cerah: #10b981;
@@ -30,7 +32,7 @@ header a {
     transition: color 0.25s ease;
 }
 
-/* Tombol */
+/* Tombol dan aksesibilitas */
 button,
 a {
     -webkit-tap-highlight-color: transparent;
@@ -44,7 +46,7 @@ a:focus-visible {
 
 /* Kartu */
 .card-smancis {
-    background: #ffffff;
+    background: #fff;
     border: 1px solid #d1fae5;
     border-radius: 18px;
     overflow: hidden;
@@ -59,18 +61,34 @@ a:focus-visible {
 
 /* Placeholder foto */
 .photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .65rem;
     position: relative;
     width: 100%;
+    min-height: 190px;
     aspect-ratio: 16 / 9;
     overflow: hidden;
+    text-align: center;
+    color: #166534;
     background: linear-gradient(
         135deg,
-        #d1fae5,
-        #a7f3d0,
-        #ecfdf5
+        rgba(220, 252, 231, .92),
+        rgba(240, 253, 244, .96)
     );
-    border: 1px dashed #059669;
-    border-radius: 16px;
+    border: 2px dashed #86efac;
+    border-radius: 1rem;
+}
+
+.photo-placeholder i {
+    font-size: 2rem;
+}
+
+.photo-placeholder small {
+    color: #15803d;
+    font-size: .75rem;
 }
 
 .photo-placeholder img {
@@ -78,9 +96,9 @@ a:focus-visible {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform .4s ease;
 }
 
-/* Teks petunjuk pada placeholder */
 .photo-placeholder .photo-label {
     position: absolute;
     inset: 0;
@@ -95,23 +113,102 @@ a:focus-visible {
     pointer-events: none;
 }
 
-/* Gambar profil sekolah */
+.card-smancis:hover .photo-placeholder img {
+    transform: scale(1.04);
+}
+
 .photo-profile {
     aspect-ratio: 4 / 3;
 }
 
-/* Gambar banner */
 .photo-banner {
     aspect-ratio: 21 / 9;
 }
 
-/* Transisi kartu dan gambar */
-.photo-placeholder img {
-    transition: transform 0.4s ease;
+/* Tab fasilitas */
+.tab-btn.active {
+    background: #15803d;
+    color: white;
+    border-color: #15803d;
+    box-shadow: 0 8px 20px rgba(21, 128, 61, .18);
 }
 
-.card-smancis:hover .photo-placeholder img {
-    transform: scale(1.04);
+.tab-content[hidden] {
+    display: none !important;
+}
+
+/* ========================================
+   HERO SLIDER - TRANSISI HALUS
+======================================== */
+
+#hero-slider {
+    display: grid;
+    isolation: isolate;
+}
+
+.hero-slide {
+    grid-area: 1 / 1;
+    min-width: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(28px);
+    transition:
+        opacity 850ms ease-in-out,
+        transform 850ms cubic-bezier(.22, 1, .36, 1),
+        visibility 850ms;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+    z-index: 1;
+}
+
+.hero-slide img {
+    transform: scale(1.025);
+    transition: transform 1200ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.hero-slide.active img {
+    transform: scale(1);
+}
+
+.hero-slide .slide-content {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+        opacity 650ms ease 120ms,
+        transform 650ms ease 120ms;
+}
+
+.hero-slide.active .slide-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tombol slider */
+#hero-prev,
+#hero-next {
+    transition:
+        background-color 250ms ease,
+        color 250ms ease,
+        transform 250ms ease;
+}
+
+#hero-prev:hover,
+#hero-next:hover {
+    transform: translateY(-50%) scale(1.08);
+}
+
+/* Indikator slide */
+#hero-dots button {
+    transition:
+        width 350ms ease,
+        background-color 350ms ease,
+        opacity 350ms ease;
 }
 
 /* Tampilan HP */
@@ -123,4 +220,20 @@ a:focus-visible {
     .photo-placeholder {
         border-radius: 12px;
     }
+}
+
+/* Menghormati pengaturan pengurangan animasi */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
     }
+
+    .hero-slide,
+    .hero-slide img,
+    .hero-slide .slide-content,
+    #hero-prev,
+    #hero-next,
+    #hero-dots button {
+        transition: none !important;
+    }
+}
