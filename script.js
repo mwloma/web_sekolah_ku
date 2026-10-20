@@ -1,243 +1,83 @@
-
-/* ========================================
-   JAVASCRIPT WEBSITE SMANCIS
-======================================== */
-
-/* 1. MENU NAVIGASI MOBILE */
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-
-if (menuBtn && mobileMenu) {
+/* JavaScript SMANCIS: menu, tab fasilitas, hero slider, dan slider ekstrakurikuler */
+document.addEventListener('DOMContentLoaded', () => {
+  // Menu seluler
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (menuBtn && mobileMenu) {
     menuBtn.addEventListener('click', () => {
-        const isHidden = mobileMenu.classList.toggle('hidden');
-
-        menuBtn.setAttribute('aria-expanded', String(!isHidden));
-        menuBtn.setAttribute(
-            'aria-label',
-            isHidden ? 'Buka menu' : 'Tutup menu'
-        );
-
-        menuBtn.innerHTML = isHidden
-            ? '<i class="fa-solid fa-bars" aria-hidden="true"></i>'
-            : '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden', isOpen);
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+      menuBtn.setAttribute('aria-label', isOpen ? 'Buka menu' : 'Tutup menu');
+      menuBtn.innerHTML = isOpen ? '<i class="fa-solid fa-bars" aria-hidden="true"></i>' : '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
     });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.setAttribute('aria-label','Buka menu'); menuBtn.innerHTML='<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+    }));
+  }
 
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            menuBtn.setAttribute('aria-expanded', 'false');
-            menuBtn.setAttribute('aria-label', 'Buka menu');
-            menuBtn.innerHTML =
-                '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
-        });
+  // Tab fasilitas
+  const tabButtons = [...document.querySelectorAll('.tab-btn')];
+  const tabContents = [...document.querySelectorAll('.tab-content')];
+  tabButtons.forEach(button => button.addEventListener('click', () => {
+    const selected = button.dataset.tab;
+    tabButtons.forEach(btn => {
+      const active = btn === button; btn.classList.toggle('active', active);
+      btn.classList.toggle('bg-green-700', active); btn.classList.toggle('text-white', active);
+      btn.classList.toggle('border-green-700', active); btn.classList.toggle('bg-white', !active);
+      btn.classList.toggle('text-slate-600', !active); btn.classList.toggle('border-green-200', !active);
+      btn.setAttribute('aria-selected', String(active));
     });
-}
+    tabContents.forEach(panel => { const active = panel.id === `content-${selected}`; panel.hidden = !active; panel.classList.toggle('hidden', !active); });
+  }));
 
-/* 2. TAB FASILITAS */
-const tabButtons = document.querySelectorAll('.tab-btn');
-const tabContents = document.querySelectorAll('.tab-content');
+  // Hero slider — satu pengendali saja
+  const heroSlider = document.getElementById('hero-slider');
+  if (heroSlider) {
+    const slides = [...heroSlider.querySelectorAll('.hero-slide')];
+    const prev = document.getElementById('hero-prev'); const next = document.getElementById('hero-next');
+    let index = Math.max(0, slides.findIndex(s => s.classList.contains('active'))); let timer = null;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function show(i) { if (!slides.length) return; index = (i + slides.length) % slides.length; slides.forEach((s,n) => { const active=n===index; s.classList.toggle('active',active); s.style.display=active?'block':'none'; s.setAttribute('aria-hidden',String(!active)); }); }
+    function stop(){ if(timer){clearInterval(timer);timer=null;} }
+    function start(){ stop(); if(!document.hidden&&!reduced.matches&&slides.length>1) timer=setInterval(()=>show(index+1),5000); }
+    prev?.addEventListener('click',()=>{show(index-1);start();}); next?.addEventListener('click',()=>{show(index+1);start();});
+    heroSlider.addEventListener('mouseenter',stop); heroSlider.addEventListener('mouseleave',start);
+    document.addEventListener('visibilitychange',()=>document.hidden?stop():start()); reduced.addEventListener?.('change',start);
+    show(index); start();
+  }
 
-tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const selected = button.dataset.tab;
+  // Slider ekstrakurikuler: tombol, swipe HP, titik navigasi, dan autoplay
+  const carousel = document.getElementById('ekskul-carousel');
+  const track = document.getElementById('ekskul-track');
+  const viewport = carousel?.querySelector('.ekskul-viewport');
+  const prev = document.getElementById('ekskul-prev'); const next = document.getElementById('ekskul-next');
+  const dotsContainer = document.getElementById('ekskul-dots');
+  if (carousel && track && viewport) {
+    const cards = [...track.querySelectorAll('.ekskul-card')];
+    let index=0, visible=3, timer=null, resizeTimer=null, startX=0, endX=0;
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+    function getVisible(){ return window.innerWidth<=640?1:window.innerWidth<=1024?2:3; }
+    function maxIndex(){ return Math.max(0,cards.length-visible); }
+    function step(){ if(!cards[0]) return 0; const style=getComputedStyle(track); return cards[0].getBoundingClientRect().width+(parseFloat(style.columnGap)||parseFloat(style.gap)||0); }
+    function move(animate=true){ track.style.transition=(!animate||reduced.matches)?'none':''; track.style.transform=`translate3d(${-index*step()}px,0,0)`; }
+    function updateDots(){ if(!dotsContainer)return; const dots=[...dotsContainer.querySelectorAll('button')]; const activePage=Math.floor(index/visible); dots.forEach((d,i)=>{const active=i===activePage;d.classList.toggle('active',active);d.setAttribute('aria-current',String(active));}); }
+    function buildDots(){ if(!dotsContainer)return; dotsContainer.innerHTML=''; const pages=Math.ceil(cards.length/visible); for(let i=0;i<pages;i++){const b=document.createElement('button');b.type='button';b.className='ekskul-dot';b.setAttribute('aria-label',`Lihat kelompok ekstrakurikuler ${i+1}`);b.addEventListener('click',()=>{index=Math.min(i*visible,maxIndex());move();updateDots();restart();});dotsContainer.appendChild(b);}updateDots(); }
+    function go(i){index=Math.max(0,Math.min(i,maxIndex()));move();updateDots();}
+    function nextSlide(){go(index>=maxIndex()?0:index+1);} function prevSlide(){go(index<=0?maxIndex():index-1);}
+    function stop(){if(timer){clearInterval(timer);timer=null;}}
+    function start(){stop();if(!document.hidden&&!reduced.matches&&cards.length>visible)timer=setInterval(nextSlide,4000);}
+    function restart(){stop();start();}
+    prev?.addEventListener('click',()=>{prevSlide();restart();}); next?.addEventListener('click',()=>{nextSlide();restart();});
+    carousel.addEventListener('mouseenter',stop); carousel.addEventListener('mouseleave',start);
+    viewport.addEventListener('touchstart',e=>{startX=e.changedTouches[0].screenX;},{passive:true});
+    viewport.addEventListener('touchend',e=>{endX=e.changedTouches[0].screenX;const delta=endX-startX;if(Math.abs(delta)>45){delta<0?nextSlide():prevSlide();restart();}},{passive:true});
+    carousel.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){nextSlide();restart();}else if(e.key==='ArrowLeft'){prevSlide();restart();}});
+    window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{const v=getVisible();if(v!==visible){visible=v;index=Math.min(index,maxIndex());buildDots();}move(false);restart();},150);});
+    document.addEventListener('visibilitychange',()=>document.hidden?stop():start()); reduced.addEventListener?.('change',()=>{move(false);restart();});
+    visible=getVisible();buildDots();move(false);start();
+  }
 
-        tabButtons.forEach(btn => {
-            const isSelected = btn === button;
-
-            btn.classList.toggle('active', isSelected);
-            btn.classList.toggle('bg-white', !isSelected);
-            btn.classList.toggle('text-slate-600', !isSelected);
-
-            btn.setAttribute('aria-selected', String(isSelected));
-        });
-
-        tabContents.forEach(content => {
-            const isSelected =
-                content.id === `content-${selected}`;
-
-            content.hidden = !isSelected;
-            content.classList.toggle('hidden', !isSelected);
-        });
-    });
+  const year = document.getElementById('year'); if(year) year.textContent = new Date().getFullYear();
 });
-
-/* 3. HERO SLIDER OTOMATIS */
-const heroSlider = document.getElementById('hero-slider');
-
-if (heroSlider) {
-    const heroSlides = Array.from(
-        heroSlider.querySelectorAll('.hero-slide')
-    );
-
-    const heroDots = document.getElementById('hero-dots');
-    const heroPrev = document.getElementById('hero-prev');
-    const heroNext = document.getElementById('hero-next');
-
-    let activeIndex = Math.max(
-        0,
-        heroSlides.findIndex(slide =>
-            slide.classList.contains('active')
-        )
-    );
-
-    let sliderTimer = null;
-    const sliderInterval = 5000;
-
-    const reduceMotion = window.matchMedia(
-        '(prefers-reduced-motion: reduce)'
-    );
-
-    /* Membuat titik navigasi otomatis */
-    if (heroDots) {
-        heroDots.innerHTML = '';
-
-        heroSlides.forEach((slide, index) => {
-            const dot = document.createElement('button');
-
-            dot.type = 'button';
-            dot.className =
-                'h-3 w-3 rounded-full border border-white bg-transparent opacity-70';
-
-            dot.setAttribute(
-                'aria-label',
-                `Buka slide ${index + 1}`
-            );
-
-            dot.addEventListener('click', () => {
-                showHeroSlide(index);
-                startHeroSlider();
-            });
-
-            heroDots.appendChild(dot);
-        });
-    }
-
-    const dots = heroDots
-        ? Array.from(heroDots.querySelectorAll('button'))
-        : [];
-
-    /* Menampilkan slide yang dipilih */
-    function showHeroSlide(index) {
-        if (!heroSlides.length) return;
-
-        activeIndex =
-            (index + heroSlides.length) % heroSlides.length;
-
-        heroSlides.forEach((slide, i) => {
-            const isActive = i === activeIndex;
-
-            slide.classList.toggle('active', isActive);
-            slide.setAttribute(
-                'aria-hidden',
-                String(!isActive)
-            );
-
-            if (isActive) {
-                slide.removeAttribute('inert');
-            } else {
-                slide.setAttribute('inert', '');
-            }
-        });
-
-        /* Memperbarui titik navigasi */
-        dots.forEach((dot, i) => {
-            const isActive = i === activeIndex;
-
-            dot.classList.toggle('w-8', isActive);
-            dot.classList.toggle('bg-white', isActive);
-            dot.classList.toggle(
-                'bg-transparent',
-                !isActive
-            );
-            dot.classList.toggle(
-                'opacity-100',
-                isActive
-            );
-            dot.classList.toggle(
-                'opacity-70',
-                !isActive
-            );
-
-            dot.setAttribute(
-                'aria-current',
-                isActive ? 'true' : 'false'
-            );
-        });
-    }
-
-    /* Menghentikan slider otomatis */
-    function stopHeroSlider() {
-        if (sliderTimer !== null) {
-            clearInterval(sliderTimer);
-            sliderTimer = null;
-        }
-    }
-
-    /* Menjalankan slider setiap 5 detik */
-    function startHeroSlider() {
-        stopHeroSlider();
-
-        if (
-            document.hidden ||
-            reduceMotion.matches ||
-            heroSlides.length < 2
-        ) {
-            return;
-        }
-
-        sliderTimer = setInterval(() => {
-            showHeroSlide(activeIndex + 1);
-        }, sliderInterval);
-    }
-
-    /* Tombol slide berikutnya */
-    heroNext?.addEventListener('click', () => {
-        showHeroSlide(activeIndex + 1);
-        startHeroSlider();
-    });
-
-    /* Tombol slide sebelumnya */
-    heroPrev?.addEventListener('click', () => {
-        showHeroSlide(activeIndex - 1);
-        startHeroSlider();
-    });
-
-    /* Berhenti saat kursor berada di slider */
-    heroSlider.addEventListener(
-        'mouseenter',
-        stopHeroSlider
-    );
-
-    heroSlider.addEventListener(
-        'mouseleave',
-        startHeroSlider
-    );
-
-    /* Menghentikan slider ketika tab browser tidak aktif */
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            stopHeroSlider();
-        } else {
-            startHeroSlider();
-        }
-    });
-
-    /* Mengikuti pengaturan pengurangan animasi */
-    if (reduceMotion.addEventListener) {
-        reduceMotion.addEventListener(
-            'change',
-            startHeroSlider
-        );
-    }
-
-    /* Menampilkan slide awal dan menjalankan slider */
-    showHeroSlide(activeIndex);
-    startHeroSlider();
-}
-
-/* 4. TAHUN COPYRIGHT OTOMATIS */
-const yearElement = document.getElementById('year');
-
-if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-}
