@@ -645,3 +645,9 @@ website-smancis/
 Catatan: kode HTML yang kamu kirim terpotong pada bagian fasilitas olahraga, sehingga saya belum bisa menyusun ulang seluruh halaman secara utuh tanpa bagian sisanya. Langkah-langkah di atas bisa langsung diterapkan pada kode yang tersedia tanpa menghilangkan struktur menu dan interaksi yang sudah ada.
 
 Jika kamu kirimkan sisa kode HTML hingga penutup </html> beserta style.css dan JavaScript-nya jika ada, saya bisa bantu merapikan menjadi satu versi website lengkap bertema hijau dengan placeholder foto pada setiap bagian yang relevan, siap kamu salin ke proyekmu.
+
+
+baukan saya gambar bagaimana kegiatan jurnalistik
+ di smacis para murid sedang mengerjakan beberapa buku dan ada yang menyusun tema di canva (laptop) serta beberapa murid sedang mengerjakan aktivitas nya masing masing sperti memotong menulis dll didampingi guru
+
+baukan saya gambar bagaimana kegiatan paskibraka dengan sudut pandang di depan murid murid sedang berjalan di dampingi pemandu peleton di sampingnya dan di depannya persis dan seluruh badan serta terlihat sangat coll true adam  serta barisannya seperti ini namun rapat
