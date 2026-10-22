@@ -1,1096 +1,266 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#14532d">
-  <meta name="description" content="Website SMA Negeri 1 Cipta Cendekia (SMANCIS). Cerdas berkarakter, menginspirasi dunia.">
-
+  <meta name="theme-color" content="#064e3b">
+  <meta name="description" content="Website SMA Negeri 1 Cipta Cendekia (SMANCIS). Cerdas Berkarakter, Menginspirasi Dunia.">
   <title>SMA Negeri 1 Cipta Cendekia (SMANCIS)</title>
-
-  <!-- Favicon Website -->
   <link rel="icon" type="image/png" href="gambar/favicon.png">
   <link rel="apple-touch-icon" href="gambar/favicon.png">
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- CSS Eksternal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-
-<body class="bg-green-50/50 text-slate-800 antialiased">
-
-  <!-- Navbar -->
-  <header class="sticky top-0 z-50 border-b border-green-100 bg-white/95 backdrop-blur-md">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-20 items-center justify-between">
-
-        <a href="#beranda" class="flex items-center gap-3">
-          <img
-            src="gambar/favicon.png"
-            alt="Logo SMA Negeri 1 Cipta Cendekia"
-            class="h-12 w-12 rounded-xl object-contain"
-            onerror="this.style.display='none'"
-          >
-
-          <div>
-            <span class="block text-xl font-extrabold tracking-tight text-slate-900">
-              SMANCIS
-            </span>
-            <span class="text-xs font-semibold uppercase tracking-wide text-green-700">
-              SMA N 1 Cipta Cendekia
-            </span>
-          </div>
-        </a>
-
-        <!-- Navigasi Desktop -->
-        <nav
-          class="hidden items-center gap-6 text-sm font-semibold text-slate-600 md:flex"
-          aria-label="Navigasi utama"
-        >
-          <a href="#beranda" class="transition hover:text-green-700">Beranda</a>
-          <a href="#tentang" class="transition hover:text-green-700">Tentang</a>
-          <a href="#fasilitas" class="transition hover:text-green-700">Fasilitas</a>
-          <a href="#ekskul" class="transition hover:text-green-700">Ekstrakurikuler</a>
-          <a href="#ppdb" class="transition hover:text-green-700">PPDB</a>
-          <a href="#kontak" class="transition hover:text-green-700">Kontak</a>
-        </nav>
-
-        <a
-          href="#ppdb"
-          class="hidden rounded-xl bg-green-700 px-5 py-3 text-sm font-bold text-white shadow-md shadow-green-200 transition hover:bg-green-800 sm:inline-flex"
-        >
-          Daftar Sekarang
-        </a>
-
-        <!-- Tombol Menu Mobile -->
-        <button
-          id="menu-btn"
-          type="button"
-          aria-label="Buka menu"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-          class="text-2xl text-green-800 md:hidden"
-        >
-          <i class="fa-solid fa-bars" aria-hidden="true"></i>
-        </button>
-
-      </div>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#beranda" aria-label="SMANCIS, kembali ke beranda">
+        <img src="gambar/favicon.png" alt="Logo SMANCIS" onerror="this.style.display='none'">
+        <span><strong>SMANCIS</strong><small>SMA Negeri 1 Cipta Cendekia</small></span>
+      </a>
+      <button id="menu-btn" class="menu-btn" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+      <nav class="desktop-nav" aria-label="Navigasi utama">
+        <a href="#beranda">Beranda</a><a href="#tentang">Tentang</a><a href="#fasilitas">Fasilitas</a>
+        <a href="#ekskul">Ekskul</a><a href="#ppdb">PPDB</a><a href="#kontak">Kontak</a>
+        <a class="nav-cta" href="#ppdb">Daftar Sekarang <i class="fa-solid fa-arrow-right"></i></a>
+      </nav>
     </div>
-
-    <!-- Navigasi Mobile -->
-    <nav
-      id="mobile-menu"
-      class="hidden space-y-1 border-t border-green-100 bg-white px-4 py-3 md:hidden"
-      aria-label="Navigasi seluler"
-    >
-      <a href="#beranda" class="block rounded-lg px-3 py-2 hover:bg-green-50">Beranda</a>
-      <a href="#tentang" class="block rounded-lg px-3 py-2 hover:bg-green-50">Tentang</a>
-      <a href="#fasilitas" class="block rounded-lg px-3 py-2 hover:bg-green-50">Fasilitas</a>
-      <a href="#ekskul" class="block rounded-lg px-3 py-2 hover:bg-green-50">Ekstrakurikuler</a>
-      <a href="#ppdb" class="block rounded-lg px-3 py-2 hover:bg-green-50">PPDB</a>
-      <a href="#kontak" class="block rounded-lg px-3 py-2 hover:bg-green-50">Kontak</a>
+    <nav id="mobile-menu" class="mobile-menu hidden" aria-label="Navigasi seluler">
+      <a href="#beranda">Beranda</a><a href="#tentang">Tentang</a><a href="#fasilitas">Fasilitas</a>
+      <a href="#ekskul">Ekstrakurikuler</a><a href="#ppdb">PPDB</a><a href="#kontak">Kontak</a>
+      <a class="mobile-cta" href="#ppdb">Daftar Sekarang <i class="fa-solid fa-arrow-right"></i></a>
     </nav>
   </header>
 
   <main>
-
-    <!-- Hero Slider -->
-    <section
-      id="beranda"
-      class="relative overflow-hidden bg-gradient-to-br from-green-950 via-green-900 to-emerald-800 text-white"
-    >
-      <div
-        class="pointer-events-none absolute inset-0 opacity-15"
-        style="background-image:radial-gradient(#bbf7d0 1px,transparent 1px);background-size:18px 18px"
-      ></div>
-
-      <div id="hero-slider" class="relative z-10" aria-label="Sorotan SMANCIS">
-
-        <!-- Slide 1 -->
-        <article class="hero-slide active">
-          <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:px-8 lg:py-28">
-
-            <div class="slide-content">
-              <span class="mb-6 inline-flex rounded-full border border-green-300/30 bg-green-400/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-green-100">
-                Sekolah Unggulan &amp; Berstandar Global
-              </span>
-
-              <h1 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-                Cerdas Berkarakter,
-                <span class="text-green-300">Menginspirasi Dunia.</span>
-              </h1>
-
-              <p class="mb-8 max-w-xl text-lg leading-relaxed text-green-50/85">
-                Memadukan keunggulan akademik, pembentukan karakter luhur, dan adaptasi teknologi modern guna mencetak generasi emas bangsa.
-              </p>
-
-              <div class="flex flex-col gap-3 sm:flex-row">
-                <a
-                  href="#tentang"
-                  class="rounded-xl bg-white px-7 py-4 text-center font-bold text-green-900 transition hover:bg-green-50"
-                >
-                  Jelajahi Profil
-                  <i class="fa-solid fa-arrow-right ml-2"></i>
-                </a>
-
-                <a
-                  href="#fasilitas"
-                  class="rounded-xl border border-green-200/40 bg-green-950/20 px-7 py-4 text-center font-bold text-white transition hover:bg-green-800"
-                >
-                  Lihat Fasilitas
-                </a>
-              </div>
-
-              <div class="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
-                <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
-                  <div class="mb-2 text-2xl">🥇</div>
-                  <h3 class="font-bold">Prestasi Akademik</h3>
-                  <p class="mt-1 text-xs text-green-100/75">Mengembangkan potensi siswa.</p>
-                </div>
-
-                <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
-                  <div class="mb-2 text-2xl">🎨</div>
-                  <h3 class="font-bold">Bakat &amp; Kreativitas</h3>
-                  <p class="mt-1 text-xs text-green-100/75">Ruang tumbuh di luar kelas.</p>
-                </div>
-
-                <div class="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
-                  <div class="mb-2 text-2xl">🎓</div>
-                  <h3 class="font-bold">Siap Masa Depan</h3>
-                  <p class="mt-1 text-xs text-green-100/75">Belajar dan berkarakter.</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <img
-                src="gambar/halaman_awal.jpg"
-                alt="Gedung SMA Negeri 1 Cipta Cendekia"
-                class="h-[300px] w-full rounded-3xl object-cover shadow-2xl sm:h-[450px]"
-                fetchpriority="high"
-              >
-            </div>
-
+    <!-- BERANDA / HERO SLIDER -->
+    <section id="hero-slider" class="hero-slider" aria-label="Sorotan SMANCIS">
+      <article class="hero-slide active">
+        <div class="hero-bg" style="background-image:url('gambar/halaman_awal.jpg')"></div>
+        <div class="hero-shade"></div>
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <span class="eyebrow eyebrow-light">SMA NEGERI 1 CIPTA CENDEKIA</span>
+            <h1>Belajar Nyaman,<br><span>Masa Depan Cemerlang.</span></h1>
+            <p>Lingkungan belajar yang mendukung kolaborasi, inovasi, kedisiplinan, dan pembentukan karakter peserta didik.</p>
+            <a class="button button-light" href="#fasilitas">Jelajahi Fasilitas <i class="fa-solid fa-arrow-right"></i></a>
           </div>
-        </article>
-
-        <!-- Slide 2 -->
-        <article class="hero-slide">
-          <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:px-8 lg:py-28">
-
-            <div class="slide-content">
-              <span class="mb-6 inline-flex rounded-full border border-green-300/30 bg-green-400/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-green-100">
-                Generasi Berprestasi
-              </span>
-
-              <h2 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-                Raih Prestasi,
-                <span class="text-green-300">Wujudkan Mimpi.</span>
-              </h2>
-
-              <p class="mb-8 max-w-xl text-lg leading-relaxed text-green-50/85">
-                Bersama SMANCIS, kembangkan potensi, asah kreativitas, dan raih prestasi untuk masa depan yang lebih gemilang.
-              </p>
-
-              <a
-                href="#ekskul"
-                class="inline-block rounded-xl bg-white px-7 py-4 font-bold text-green-900 transition hover:bg-green-50"
-              >
-                Lihat Kegiatan
-                <i class="fa-solid fa-arrow-right ml-2"></i>
-              </a>
-            </div>
-
-            <div>
-              <img
-                src="gambar/halaman_prestasi.png"
-                alt="Prestasi siswa SMANCIS"
-                loading="lazy"
-                class="h-[300px] w-full rounded-3xl object-cover shadow-2xl sm:h-[450px]"
-              >
-            </div>
-
+          <div class="hero-image-wrap"><img src="gambar/halaman_awal.jpg" alt="Lingkungan belajar SMANCIS" onerror="this.src='gambar/profil-sekolah.jpg'"></div>
+        </div>
+      </article>
+      <article class="hero-slide">
+        <div class="hero-bg" style="background-image:url('gambar/kegiatan-sekolah.jpg')"></div>
+        <div class="hero-shade"></div>
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <span class="eyebrow eyebrow-light">GENERASI BERPRESTASI</span>
+            <h1>Berani Berkarya,<br><span>Siap Mendunia.</span></h1>
+            <p>Ruang tumbuh bagi siswa untuk mengembangkan ilmu pengetahuan, bakat, kreativitas, dan jiwa kepemimpinan.</p>
+            <a class="button button-light" href="#ekskul">Kenali Kegiatan Kami <i class="fa-solid fa-arrow-right"></i></a>
           </div>
-        </article>
-
-        <!-- Slide 3 -->
-        <article class="hero-slide">
-          <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-2 lg:px-8 lg:py-28">
-
-            <div class="slide-content">
-              <span class="mb-6 inline-flex rounded-full border border-green-300/30 bg-green-400/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-green-100">
-                Lingkungan Belajar Inspiratif
-              </span>
-
-              <h2 class="mb-6 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-                Belajar Nyaman,
-                <span class="text-green-300">Masa Depan Cemerlang.</span>
-              </h2>
-
-              <p class="mb-8 max-w-xl text-lg leading-relaxed text-green-50/85">
-                Lingkungan belajar yang mendukung kolaborasi, inovasi, kedisiplinan, dan pembentukan karakter peserta didik.
-              </p>
-
-              <a
-                href="#fasilitas"
-                class="inline-block rounded-xl bg-white px-7 py-4 font-bold text-green-900 transition hover:bg-green-50"
-              >
-                Jelajahi Fasilitas
-                <i class="fa-solid fa-arrow-right ml-2"></i>
-              </a>
-            </div>
-
-            <div>
-              <img
-                src="gambar/halaman_fasilitas.png"
-                alt="Fasilitas sekolah SMANCIS"
-                loading="lazy"
-                class="h-[300px] w-full rounded-3xl object-cover shadow-2xl sm:h-[450px]"
-              >
-            </div>
-
+          <div class="hero-image-wrap"><img src="gambar/kegiatan-sekolah.jpg" alt="Kegiatan siswa SMANCIS" onerror="this.src='gambar/halaman_awal.jpg'"></div>
+        </div>
+      </article>
+      <article class="hero-slide">
+        <div class="hero-bg" style="background-image:url('gambar/halaman_fasilitas.png')"></div>
+        <div class="hero-shade"></div>
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <span class="eyebrow eyebrow-light">CERDAS BERKARAKTER</span>
+            <h1>Temukan Potensi,<br><span>Raih Prestasi.</span></h1>
+            <p>Menguatkan karakter luhur dan adaptasi teknologi untuk menghadapi tantangan masa depan.</p>
+            <a class="button button-light" href="#tentang">Tentang SMANCIS <i class="fa-solid fa-arrow-right"></i></a>
           </div>
-        </article>
-
-      </div>
-
-      <!-- Tombol Slider -->
-      <button
-        id="hero-prev"
-        type="button"
-        aria-label="Slide sebelumnya"
-        class="absolute left-3 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/30 bg-black/25 p-3 text-white backdrop-blur hover:bg-white hover:text-green-900 sm:left-6"
-      >
-        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-      </button>
-
-      <button
-        id="hero-next"
-        type="button"
-        aria-label="Slide berikutnya"
-        class="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/30 bg-black/25 p-3 text-white backdrop-blur hover:bg-white hover:text-green-900 sm:right-6"
-      >
-        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-      </button>
-
-      <div
-        id="hero-dots"
-        class="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 gap-3"
-        aria-label="Navigasi slide"
-      ></div>
+          <div class="hero-image-wrap"><img src="gambar/halaman_fasilitas.png" alt="Fasilitas SMANCIS" onerror="this.src='gambar/profil-sekolah.jpg'"></div>
+        </div>
+      </article>
+      <button id="hero-prev" class="hero-arrow hero-prev" type="button" aria-label="Slide sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+      <button id="hero-next" class="hero-arrow hero-next" type="button" aria-label="Slide berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+      <div id="hero-dots" class="hero-dots" aria-label="Pilih slide"></div>
+      <div class="hero-bottom-line"></div>
     </section>
 
-    
-    
-<!-- Profil Sekolah dan Sambutan Kepala Sekolah -->
-
-<!-- Judul Bagian -->
-<div class="mx-auto mb-10 max-w-3xl text-center">
-  <span class="text-xs font-extrabold uppercase tracking-[0.25em] text-emerald-700">
-    Tentang Kami
-  </span>
-
-  <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-    Mengenal Lebih Dekat SMANCIS
-  </h2>
-
-  <p class="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base">
-    Membangun lingkungan pendidikan yang inspiratif untuk mencetak generasi
-    cerdas, berkarakter, kreatif, dan siap menghadapi masa depan.
-  </p>
-
-  <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-gradient-to-r from-emerald-500 to-green-800"></div>
-</div>
-
-<!-- Sambutan Kepala Sekolah -->
-<div
-  id="sambutan-kepala-sekolah"
-  class="mb-6 overflow-hidden rounded-2xl border border-emerald-50 bg-gradient-to-br from-emerald-50 via-green-50 to-white p-5 shadow-sm sm:p-8 lg:p-10"
->
-  <div class="grid items-start gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-10">
-
-    <!-- Foto Kepala Sekolah -->
-    <div class="flex justify-center lg:justify-start">
-      <div class="h-56 w-56 overflow-hidden rounded-full border-[7px] border-white bg-slate-200 shadow-xl shadow-emerald-900/10 sm:h-64 sm:w-64 lg:sticky lg:top-28">
-
-        <img
-          src="staff sekolah/kepala-sekolah.png"
-          alt="Foto Kepala Sekolah SMA Negeri 1 Cipta Cendekia"
-          loading="lazy"
-          class="h-full w-full object-cover object-top"
-        >
-
-      </div>
-    </div>
-
-    <!-- Isi Sambutan -->
-    <div class="min-w-0">
-
-      <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-emerald-700">
-        Kata Pengantar Pimpinan
-      </span>
-
-      <h3 class="mt-2 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
-        Sambutan Kepala Sekolah
-      </h3>
-
-      <!-- Ganti dengan nama kepala sekolah sebenarnya -->
-      <p class="mt-2 text-base font-medium text-slate-500 sm:text-lg">
-        Dr. H. Arif Pratama, M.Pd.
-      </p>
-
-      <div class="mt-3 h-1 w-11 rounded-full bg-emerald-500"></div>
-
-      <p class="mt-5 text-sm font-semibold italic leading-7 text-slate-700">
-        Assalamu'alaikum warahmatullahi wabarakatuh.
-      </p>
-
-      <p class="mt-1 text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-6">
-        Puji syukur kita panjatkan ke hadirat Tuhan Yang Maha Esa atas
-        segala rahmat dan karunia-Nya sehingga website resmi SMA Negeri 1
-        Cipta Cendekia dapat menjadi sarana informasi, komunikasi, dan
-        publikasi bagi seluruh warga sekolah serta masyarakat luas.
-      </p>
-
-      <p class="mt-3 text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-6">
-        Selamat datang di portal resmi SMANCIS. Kami percaya bahwa setiap
-        peserta didik memiliki potensi, bakat, dan kesempatan untuk
-        berkembang menjadi pribadi yang unggul. Oleh karena itu, sekolah
-        berkomitmen menciptakan lingkungan belajar yang aman, nyaman,
-        inklusif, inspiratif, dan mendukung perkembangan peserta didik
-        secara menyeluruh.
-      </p>
-
-      <p class="mt-3 text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-6">
-        Kami tidak hanya berfokus pada pencapaian akademik, tetapi juga
-        menanamkan kedisiplinan, tanggung jawab, kejujuran, kepedulian,
-        jiwa nasionalisme, serta kemampuan beradaptasi dengan perkembangan
-        ilmu pengetahuan dan teknologi. Melalui pembelajaran, kegiatan
-        ekstrakurikuler, penelitian, dan berbagai kompetisi, kami mendorong
-        siswa untuk terus berkarya dan meraih prestasi.
-      </p>
-
-      <p class="mt-3 text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-6">
-        Kami menyadari bahwa keberhasilan pendidikan membutuhkan kerja
-        sama yang erat antara sekolah, orang tua, masyarakat, dan berbagai
-        mitra pendidikan. Semoga website ini dapat mempererat komunikasi,
-        menyampaikan informasi yang bermanfaat, serta menjadi jendela
-        untuk mengenal berbagai program dan pencapaian SMANCIS.
-      </p>
-
-      <p class="mt-4 text-sm font-semibold italic leading-7 text-slate-700">
-        Wassalamu'alaikum warahmatullahi wabarakatuh.
-      </p>
-
-      <!-- Identitas Kepala Sekolah -->
-      <div class="mt-5 max-w-lg border-t border-emerald-200 pt-4">
-        <p class="text-sm text-slate-500">Hormat kami,</p>
-
-        <p class="mt-1 font-extrabold text-emerald-800">
-          Dr. H. Arif Pratama, M.Pd.
-        </p>
-
-        <p class="text-xs text-slate-500">
-          Kepala SMA Negeri 1 Cipta Cendekia
-        </p>
-
-        <div class="mt-4 inline-flex items-center gap-2 text-xs font-semibold italic text-emerald-700">
-          <i class="fa-solid fa-graduation-cap text-base"></i>
-          <span>Cerdas Berkarakter, Menginspirasi Dunia.</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- Profil Sekolah -->
-<div class="grid items-center gap-7 pt-4 lg:grid-cols-2 lg:gap-8">
-
-  <!-- Gambar Gedung Sekolah -->
-  <div class="group overflow-hidden rounded-xl border border-slate-100 bg-slate-100 shadow-sm">
-    <img
-      src="gambar/gedung_sma.png"
-      alt="Gedung SMA Negeri 1 Cipta Cendekia"
-      loading="lazy"
-      class="h-64 w-full object-cover transition duration-500 group-hover:scale-[1.03] sm:h-80 lg:h-[370px]"
-    >
-  </div>
-
-
-  <!-- Deskripsi Profil -->
-  <div class="py-2">
-
-    <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-700">
-      Profil Sekolah
-    </span>
-
-    <h3 class="mt-2 text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl">
-      Membangun Generasi Unggul Bersama SMANCIS
-    </h3>
-
-    <p class="mt-4 text-sm leading-6 text-slate-600 sm:text-[15px]">
-      SMA Negeri 1 Cipta Cendekia (SMANCIS) merupakan institusi pendidikan
-      yang berkomitmen menghadirkan pembelajaran berkualitas, membangun
-      karakter luhur, serta mengembangkan potensi akademik dan non-akademik
-      setiap peserta didik.
-    </p>
-
-    <p class="mt-3 text-sm leading-6 text-slate-600 sm:text-[15px]">
-      Dengan mengintegrasikan ilmu pengetahuan, teknologi, kreativitas,
-      dan nilai-nilai moral, SMANCIS berupaya membentuk generasi muda
-      yang mandiri, berintegritas, berwawasan luas, serta siap menghadapi
-      tantangan masa depan.
-    </p>
-
-    <!-- Keunggulan Sekolah -->
-    <div class="mt-5 flex flex-wrap gap-2">
-
-      <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-800">
-        <i class="fa-solid fa-graduation-cap"></i>
-        Pendidikan Berkualitas
-      </span>
-
-      <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-800">
-        <i class="fa-solid fa-seedling"></i>
-        Karakter Unggul
-      </span>
-
-      <span class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-800">
-        <i class="fa-solid fa-lightbulb"></i>
-        Kreatif dan Inovatif
-      </span>
-
-    </div>
-
-    <!-- Tombol menuju Visi dan Misi -->
-    <a
-      href="#visi-misi"
-      class="mt-5 inline-flex items-center rounded-lg bg-emerald-800 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-emerald-900"
-    >
-      Visi dan Misi Kami
-      <i class="fa-solid fa-arrow-right ml-2"></i>
-    </a>
-
-  </div>
-</div>
-
-<!-- Visi dan Misi -->
-
-
-
-    <!-- Fasilitas -->
-    <section id="fasilitas" class="bg-green-100/60 py-20 sm:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-        <div class="mx-auto mb-10 max-w-3xl text-center">
-          <span class="text-sm font-bold uppercase tracking-wider text-green-700">
-            Fasilitas Modern
-          </span>
-
-          <h2 class="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl">
-            Dukungan Terbaik untuk Belajar
-          </h2>
-
-          <p class="mt-3 text-slate-600">
-            Infrastruktur untuk mendukung proses belajar, kreativitas, dan pengembangan potensi siswa.
-          </p>
+    <!-- TENTANG, VISI MISI, SAMBUTAN DAN PROFIL -->
+    <section id="tentang" class="section section-white">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">TENTANG KAMI</span>
+          <h2>Mengenal Lebih Dekat SMANCIS</h2>
+          <p>Membangun lingkungan pendidikan yang inspiratif untuk mencetak generasi cerdas, berkarakter, kreatif, dan siap menghadapi masa depan.</p>
+          <span class="heading-line"></span>
         </div>
 
-        <!-- Tombol Kategori Fasilitas -->
-        <div
-          class="mb-8 flex flex-wrap justify-center gap-3"
-          role="tablist"
-          aria-label="Kategori fasilitas"
-        >
-          <button
-            type="button"
-            class="tab-btn active rounded-xl border px-5 py-3 text-sm font-bold transition"
-            data-tab="akademik"
-            role="tab"
-            aria-selected="true"
-          >
-            Akademik &amp; Lab
-          </button>
+        <article class="welcome-panel">
+          <div class="principal-photo">
+            <!-- Ganti file ini dengan foto kepala sekolah: gambar/kepala-sekolah.png -->
+            <img src="staff sekolah/kepala-sekolah.png" alt="Foto Kepala Sekolah SMANCIS" onerror="this.onerror=null;this.src='gambar/favicon.png';this.classList.add('fallback-logo')">
+          </div>
+          <div class="welcome-copy">
+            <span class="eyebrow">KATA PENGANTAR PIMPINAN</span>
+            <h2>Sambutan Kepala Sekolah</h2>
+            <h3>Nama Kepala Sekolah, S.Pd., M.Pd.</h3>
+            <p class="greeting"><em>Assalamu’alaikum warahmatullahi wabarakatuh.</em></p>
+            <p>Puji syukur kita panjatkan ke hadirat Tuhan Yang Maha Esa atas segala rahmat dan karunia-Nya sehingga website resmi SMA Negeri 1 Cipta Cendekia dapat menjadi sarana informasi, komunikasi, dan publikasi bagi seluruh warga sekolah serta masyarakat luas.</p>
+            <p>Selamat datang di portal resmi SMANCIS. Kami percaya setiap peserta didik memiliki potensi, bakat, dan kesempatan untuk berkembang menjadi pribadi yang unggul. Oleh karena itu, sekolah berkomitmen menciptakan lingkungan belajar yang aman, nyaman, inklusif, inspiratif, dan mendukung perkembangan peserta didik secara menyeluruh.</p>
+            <p>Kami tidak hanya berfokus pada pencapaian akademik, tetapi juga menanamkan kedisiplinan, tanggung jawab, kejujuran, kepedulian, jiwa nasionalisme, serta kemampuan beradaptasi dengan perkembangan ilmu pengetahuan dan teknologi. Melalui pembelajaran, ekstrakurikuler, penelitian, dan berbagai kompetisi, kami mendorong siswa untuk berani berkarya dan meraih prestasi.</p>
+            <p>Kami menyadari bahwa keberhasilan pendidikan membutuhkan kerja sama yang erat antara sekolah, orang tua, masyarakat, dan mitra pendidikan. Semoga website ini dapat mempererat komunikasi dan menyampaikan informasi yang bermanfaat.</p>
+            <p><em>Wassalamu’alaikum warahmatullahi wabarakatuh.</em></p>
+            <div class="signature"><span>Hormat kami,</span><strong>Nama Kepala Sekolah, S.Pd., M.Pd.</strong><small>Kepala SMA Negeri 1 Cipta Cendekia</small></div>
+            <p class="motto"><i class="fa-solid fa-graduation-cap"></i> Cerdas Berkarakter, Menginspirasi Dunia.</p>
+          </div>
+        </article>
 
-          <button
-            type="button"
-            class="tab-btn rounded-xl border border-green-200 bg-white px-5 py-3 text-sm font-bold text-slate-600 transition hover:bg-green-50"
-            data-tab="olahraga"
-            role="tab"
-            aria-selected="false"
-          >
-            Olahraga &amp; Seni
-          </button>
-
-          <button
-            type="button"
-            class="tab-btn rounded-xl border border-green-200 bg-white px-5 py-3 text-sm font-bold text-slate-600 transition hover:bg-green-50"
-            data-tab="penunjang"
-            role="tab"
-            aria-selected="false"
-          >
-            Penunjang Sekolah
-          </button>
+        <div class="profile-grid">
+          <div class="profile-photo">
+            <!-- Ganti file ini dengan foto gedung sekolah: gambar/profil-sekolah.jpg -->
+            <img src="gambar/profil-sekolah.jpg" alt="Gedung SMA Negeri 1 Cipta Cendekia">
+          </div>
+          <div class="profile-copy">
+            <span class="eyebrow">PROFIL SEKOLAH</span>
+            <h2>Membangun Generasi Unggul Bersama SMANCIS</h2>
+            <p>SMA Negeri 1 Cipta Cendekia (SMANCIS) adalah sekolah menengah atas negeri model dan unggulan yang berkomitmen mencetak generasi emas bangsa. Berdiri sejak tahun 1998, SMANCIS memadukan keunggulan akademik, pembentukan karakter luhur, dan adaptasi teknologi modern guna menghadapi tantangan global.</p>
+            <p>Dengan mengintegrasikan ilmu pengetahuan, teknologi, kreativitas, dan nilai-nilai moral, SMANCIS berupaya membentuk generasi muda yang mandiri, berintegritas, berwawasan luas, serta siap menghadapi tantangan masa depan.</p>
+            <div class="value-pills"><span><i class="fa-solid fa-graduation-cap"></i> Pendidikan Berkualitas</span><span><i class="fa-solid fa-seedling"></i> Karakter Unggul</span><span><i class="fa-regular fa-lightbulb"></i> Kreatif dan Inovatif</span></div>
+          </div>
         </div>
 
-        <!-- Fasilitas Akademik -->
-        <div
-          id="content-akademik"
-          class="tab-content grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
-          role="tabpanel"
-        >
-          <article class="overflow-hidden rounded-2xl border border-green-100 bg-white p-5 shadow-sm">
-            <img
-              src="gambar/fasilitas1.png"
-              alt="Ruang kelas digital SMANCIS"
-              loading="lazy"
-              class="mb-4 h-40 w-full rounded-xl object-cover"
-            >
-            <h3 class="mb-2 font-extrabold">
-              <i class="fa-solid fa-desktop mr-2 text-green-700"></i>
-              Ruang Kelas Digital
-            </h3>
-            <p class="text-sm leading-relaxed text-slate-600">
-              Ruang belajar yang mendukung kegiatan pembelajaran modern.
-            </p>
+        <div class="vision-grid">
+          <article class="vision-card">
+            <div class="vision-icon"><i class="fa-solid fa-eye"></i></div>
+            <span class="eyebrow">ARAH DAN CITA-CITA</span>
+            <h2>Visi SMANCIS</h2>
+            <p>“Menjadi pusat pendidikan unggulan yang religius, berkarakter, berdaya saing global, dan adaptif terhadap kemajuan iptek.”</p>
           </article>
-
-          <article class="overflow-hidden rounded-2xl border border-green-100 bg-white p-5 shadow-sm">
-            <img
-              src="gambar/fasilitas2.png"
-              alt="Laboratorium komputer SMANCIS"
-              loading="lazy"
-              class="mb-4 h-40 w-full rounded-xl object-cover"
-            >
-            <h3 class="mb-2 font-extrabold">
-              <i class="fa-solid fa-computer mr-2 text-green-700"></i>
-              Lab Komputer
-            </h3>
-            <p class="text-sm leading-relaxed text-slate-600">
-              Mendukung literasi digital, coding, dan multimedia.
-            </p>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-green-100 bg-white p-5 shadow-sm">
-            <img
-              src="gambar/fasilitas3.png"
-              alt="Laboratorium IPA SMANCIS"
-              loading="lazy"
-              class="mb-4 h-40 w-full rounded-xl object-cover"
-            >
-            <h3 class="mb-2 font-extrabold">
-              <i class="fa-solid fa-flask mr-2 text-green-700"></i>
-              Laboratorium IPA
-            </h3>
-            <p class="text-sm leading-relaxed text-slate-600">
-              Ruang praktik dan eksperimen untuk pembelajaran sains.
-            </p>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-green-100 bg-white p-5 shadow-sm">
-            <img
-              src="gambar/fasilitas4.png"
-              alt="Perpustakaan SMANCIS"
-              loading="lazy"
-              class="mb-4 h-40 w-full rounded-xl object-cover"
-            >
-            <h3 class="mb-2 font-extrabold">
-              <i class="fa-solid fa-book-open mr-2 text-green-700"></i>
-              Perpustakaan
-            </h3>
-            <p class="text-sm leading-relaxed text-slate-600">
-              Mendukung kebiasaan membaca dan eksplorasi pengetahuan.
-            </p>
+          <article class="mission-card">
+            <div class="vision-icon"><i class="fa-solid fa-bullseye"></i></div>
+            <span class="eyebrow">LANGKAH NYATA</span>
+            <h2>Misi SMANCIS</h2>
+            <ol class="mission-list">
+              <li>Menyelenggarakan pembelajaran bermutu secara efektif untuk mengoptimalkan potensi akademik dan non-akademik siswa.</li>
+              <li>Menanamkan nilai keagamaan, budi pekerti luhur, dan jiwa nasionalisme dalam kehidupan sehari-hari.</li>
+              <li>Mendorong penguasaan teknologi informasi dan bahasa asing sebagai bekal bersaing di tingkat internasional.</li>
+              <li>Memfasilitasi ruang kreativitas inklusif untuk mengembangkan bakat kepemimpinan, seni, dan olahraga.</li>
+              <li>Membangun kemitraan kuat dengan perguruan tinggi terbaik serta industri global demi masa depan lulusan.</li>
+            </ol>
           </article>
         </div>
-
-        <!-- Fasilitas Olahraga dan Seni -->
-        <div
-          id="content-olahraga"
-          class="tab-content hidden grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
-          role="tabpanel"
-          hidden
-        >
-          <article class="overflow-hidden rounded-2xl border border-green-100 bg-white p-5 shadow-sm">
-            <img
-              src="gambar/fasilitas5.png"
-              alt="Lapangan olahraga SMANCIS"
-              loading="lazy"
-              class="mb-4 h-40 w-full rounded-xl object-cover"
-            >
-            <h3 class="mb-2 font-extrabold">Pusat Olahraga</h3>
-            <p class="text-sm text-slate-600">
-              Tempat siswa mengembangkan kebugaran dan kerja sama tim.
-            </p>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-green-100 bg-white p-5 shadow-sm">
-            <img
-              src="gambar/fasilitas6.png"
-              alt="Auditorium SMANCIS"
-              loading="lazy"
-              class="mb-4 h-40 w-full rounded-xl object-cover"
-            >
-            <h3 class="mb-2 font-extrabold">Auditorium</h3>
-            <p class="text-sm text-slate-600">
-              Ruang untuk kegiatan sekolah, pertunjukan, dan pertemuan.
-            </p>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-green-100 bg-white p-5 shadow-sm">
-            <img
-              src="gambar/fasilitas7.png"
-              alt="Ruang seni SMANCIS"
-              loading="lazy"
-              class="mb-4 h-40 w-full rounded-xl object-cover"
-            >
-            <h3 class="mb-2 font-extrabold">Ruang Seni</h3>
-            <p class="text-sm text-slate-600">
-              Wadah untuk melatih kreativitas dan mengekspresikan bakat.
-            </p>
-          </article>
-        </div>
-
-        <!-- Fasilitas Penunjang -->
-        <div
-          id="content-penunjang"
-          class="tab-content hidden grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
-          role="tabpanel"
-          hidden
-        >
-          <article class="overflow-hidden rounded-2xl border border-green-100 bg-white p-5 shadow-sm">
-            <img
-              src="gambar/fasilitas8.png"
-              alt="Kantin SMANCIS"
-              loading="lazy"
-              class="mb-4 h-40 w-full rounded-xl object-cover"
-            >
-            <h3 class="mb-2 font-extrabold">Kantin Sekolah</h3>
-            <p class="text-sm text-slate-600">
-              Area istirahat dan tempat siswa menikmati makanan.
-            </p>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-green-100 bg-white p-5 shadow-sm">
-            <img
-              src="gambar/fasilitas9.png"
-              alt="Taman sekolah SMANCIS"
-              loading="lazy"
-              class="mb-4 h-40 w-full rounded-xl object-cover"
-            >
-            <h3 class="mb-2 font-extrabold">Taman Sekolah</h3>
-            <p class="text-sm text-slate-600">
-              Area hijau untuk suasana sekolah yang nyaman.
-            </p>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-green-100 bg-white p-5 shadow-sm">
-            <img
-              src="gambar/fasilitas10.png"
-              alt="Area parkir SMANCIS"
-              loading="lazy"
-              class="mb-4 h-40 w-full rounded-xl object-cover"
-            >
-            <h3 class="mb-2 font-extrabold">Area Penunjang</h3>
-            <p class="text-sm text-slate-600">
-              Fasilitas pendukung aktivitas harian di lingkungan sekolah.
-            </p>
-          </article>
-        </div>
-
       </div>
     </section>
 
-    ```html
-<!-- ========================================
-     EKSTRAKURIKULER SMANCIS
-======================================== -->
-<section id="ekskul" class="ekskul-section py-20 sm:py-24">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-    <!-- Judul -->
-    <div class="mx-auto mb-10 max-w-3xl text-center">
-      <span class="text-sm font-bold uppercase tracking-[0.2em] text-green-700">
-        Pengembangan Diri
-      </span>
-
-      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-        Temukan Minat dan Bakatmu
-      </h2>
-
-      <p class="mt-4 leading-relaxed text-slate-600">
-        Berani mencoba, kreatif berkarya, dan raih prestasi bersama
-        berbagai kegiatan ekstrakurikuler SMANCIS.
-      </p>
-
-      <div class="mx-auto mt-5 h-1 w-16 rounded-full bg-green-600"></div>
-    </div>
-
-    <!-- Pembungkus Slider -->
-    <div class="ekskul-carousel" id="ekskul-carousel">
-
-      <!-- Tombol Navigasi -->
-      <div class="mb-6 flex items-center justify-between gap-4">
-        <p class="text-sm font-semibold text-green-800">
-          <i class="fa-solid fa-compass mr-2"></i>
-          Jelajahi Kegiatan Kami
-        </p>
-
-        <div class="flex gap-2">
-          <button
-            type="button"
-            id="ekskul-prev"
-            class="ekskul-arrow"
-            aria-label="Ekstrakurikuler sebelumnya"
-          >
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-
-          <button
-            type="button"
-            id="ekskul-next"
-            class="ekskul-arrow"
-            aria-label="Ekstrakurikuler berikutnya"
-          >
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
+    <!-- KILAS PRESTASI -->
+    <section class="section achievements-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">KILAS PRESTASI</span><h2>Semangat Berprestasi, Tumbuh Bersama</h2>
+          <p>Contoh konten prestasi untuk melengkapi tampilan website. Pastikan data dikonfirmasi sebelum dipublikasikan.</p>
+        </div>
+        <div class="achievement-grid">
+          <article class="achievement-card"><span class="achievement-icon"><i class="fa-solid fa-trophy"></i></span><h3>Olimpiade Sains Nasional</h3><p>Juara 1 Bidang Astronomi 2026 <small>(sesuaikan dengan hasil resmi sekolah)</small></p></article>
+          <article class="achievement-card"><span class="achievement-icon"><i class="fa-solid fa-music"></i></span><h3>Festival Musik Remaja</h3><p>Juara Umum Tingkat Provinsi <small>(sesuaikan dengan hasil resmi sekolah)</small></p></article>
+          <article class="achievement-card"><span class="achievement-icon"><i class="fa-solid fa-user-graduate"></i></span><h3>Melanjutkan Pendidikan</h3><p>Informasi penerimaan PTN dapat ditampilkan berdasarkan data lulusan resmi sekolah.</p></article>
         </div>
       </div>
+    </section>
 
-      <!-- Area yang Terlihat -->
-      <div class="ekskul-viewport">
-        <div id="ekskul-track" class="ekskul-track">
-
-          <!-- 1. PRAMUKA -->
-          <article class="ekskul-card">
-            <div class="ekskul-photo">
-              <img
-                src="gambar/ekstrakulikuler_pramuka_kedisiplinan.png"
-                alt="Kegiatan Pramuka SMANCIS"
-                loading="lazy"
-              >
-              <span class="ekskul-number">01</span>
-            </div>
-            <div class="ekskul-card-body">
-              <span class="ekskul-category">Kepemimpinan</span>
-              <h3>Pramuka</h3>
-              <p>Melatih kedisiplinan, kemandirian, kepemimpinan, dan kerja sama.</p>
-            </div>
-          </article>
-
-          <!-- 2. OLAHRAGA -->
-          <article class="ekskul-card">
-            <div class="ekskul-photo">
-              <img
-                src="gambar/ekstrakulikuler_basket_olahraga.png"
-                alt="Kegiatan olahraga SMANCIS"
-                loading="lazy"
-              >
-              <span class="ekskul-number">02</span>
-            </div>
-            <div class="ekskul-card-body">
-              <span class="ekskul-category">Kebugaran</span>
-              <h3>Olahraga</h3>
-              <p>Mengembangkan sportivitas, kesehatan, kekompakan, dan semangat berprestasi.</p>
-            </div>
-          </article>
-
-          <!-- 3. SENI DAN MUSIK -->
-          <article class="ekskul-card">
-            <div class="ekskul-photo">
-              <img
-                src="gambar/ekstrakulikuler_seni_musik_kreatif.png"
-                alt="Kegiatan seni dan musik SMANCIS"
-                loading="lazy"
-              >
-              <span class="ekskul-number">03</span>
-            </div>
-            <div class="ekskul-card-body">
-              <span class="ekskul-category">Kreativitas</span>
-              <h3>Seni dan Musik</h3>
-              <p>Menyalurkan bakat bermusik, bernyanyi, dan berekspresi melalui seni.</p>
-            </div>
-          </article>
-
-          <!-- 4. PEMROGRAMAN -->
-          <article class="ekskul-card">
-            <div class="ekskul-photo">
-              <img
-                src="gambar/ekstrakulikuler_pemrograman_inovasi.png"
-                alt="Kegiatan pemrograman SMANCIS"
-                loading="lazy"
-              >
-              <span class="ekskul-number">04</span>
-            </div>
-            <div class="ekskul-card-body">
-              <span class="ekskul-category">Teknologi</span>
-              <h3>Pemrograman</h3>
-              <p>Belajar logika, algoritma, coding, dan membangun aplikasi sederhana.</p>
-            </div>
-          </article>
-
-          <!-- 5. DESAIN GRAFIS -->
-          <article class="ekskul-card">
-            <div class="ekskul-photo">
-              <img
-                src="gambar/ekstrakulikuler_desain_grafis_kreatif.png"
-                alt="Kegiatan desain grafis SMANCIS"
-                loading="lazy"
-              >
-              <span class="ekskul-number">05</span>
-            </div>
-            <div class="ekskul-card-body">
-              <span class="ekskul-category">Desain Digital</span>
-              <h3>Desain Grafis</h3>
-              <p>Membuat poster, ilustrasi, identitas visual, dan konten digital kreatif.</p>
-            </div>
-          </article>
-
-          <!-- 6. JURNALISTIK -->
-          <article class="ekskul-card">
-            <div class="ekskul-photo">
-              <img
-                src="gambar/ektrakulikuler_jurnalistik_kreatif.png"
-                alt="Kegiatan jurnalistik SMANCIS"
-                loading="lazy"
-              >
-              <span class="ekskul-number">06</span>
-            </div>
-            <div class="ekskul-card-body">
-              <span class="ekskul-category">Literasi</span>
-              <h3>Jurnalistik</h3>
-              <p>Melatih kemampuan menulis berita, wawancara, fotografi, dan peliputan.</p>
-            </div>
-          </article>
-
-          <!-- 7. FOTOGRAFI -->
-          <article class="ekskul-card">
-            <div class="ekskul-photo">
-              <img
-                src="gambar/ekstrakulikuler_fotografi_estetika.png"
-                alt="Kegiatan fotografi SMANCIS"
-                loading="lazy"
-              >
-              <span class="ekskul-number">07</span>
-            </div>
-            <div class="ekskul-card-body">
-              <span class="ekskul-category">Multimedia</span>
-              <h3>Fotografi</h3>
-              <p>Mempelajari komposisi, pencahayaan, dan teknik mengambil foto berkualitas.</p>
-            </div>
-          </article>
-
-          <!-- 8. VIDEOGRAFI -->
-          <article class="ekskul-card">
-            <div class="ekskul-photo">
-              <img
-                src="gambar/ekstrakulikuler_videografi_kreatif.png"
-                alt="Kegiatan videografi SMANCIS"
-                loading="lazy"
-              >
-              <span class="ekskul-number">08</span>
-            </div>
-            <div class="ekskul-card-body">
-              <span class="ekskul-category">Produksi Konten</span>
-              <h3>Videografi</h3>
-              <p>Belajar merekam, menyunting, dan menghasilkan video kreatif sekolah.</p>
-            </div>
-          </article>
-
-          <!-- 9. BAHASA INGGRIS -->
-          <article class="ekskul-card">
-            <div class="ekskul-photo">
-              <img
-                src="gambar/ekstrakulikuler_english_club_komunikasi.png"
-                alt="Kegiatan English Club SMANCIS"
-                loading="lazy"
-              >
-              <span class="ekskul-number">09</span>
-            </div>
-            <div class="ekskul-card-body">
-              <span class="ekskul-category">Bahasa</span>
-              <h3>English Club</h3>
-              <p>Meningkatkan kemampuan berbicara, menulis, dan berkomunikasi dalam bahasa Inggris.</p>
-            </div>
-          </article>
-
-          <!-- 10. KIR -->
-          <article class="ekskul-card">
-            <div class="ekskul-photo">
-              <img
-                src="gambar/karya-ilmiah.jpg"
-                alt="Kegiatan karya ilmiah remaja SMANCIS"
-                loading="lazy"
-              >
-              <span class="ekskul-number">10</span>
-            </div>
-            <div class="ekskul-card-body">
-              <span class="ekskul-category">Sains</span>
-              <h3>Karya Ilmiah Remaja</h3>
-              <p>Mengembangkan rasa ingin tahu, penelitian sederhana, dan inovasi ilmiah.</p>
-            </div>
-          </article>
-
-          <!-- 11. PMR -->
-          <article class="ekskul-card">
-            <div class="ekskul-photo">
-              <img
-                src="gambar/pmr.jpg"
-                alt="Kegiatan Palang Merah Remaja SMANCIS"
-                loading="lazy"
-              >
-              <span class="ekskul-number">11</span>
-            </div>
-            <div class="ekskul-card-body">
-              <span class="ekskul-category">Kemanusiaan</span>
-              <h3>Palang Merah Remaja</h3>
-              <p>Menumbuhkan kepedulian, kerja sukarela, dan pengetahuan pertolongan pertama.</p>
-            </div>
-          </article>
-
-          <!-- 12. PASKIBRA -->
-          <article class="ekskul-card">
-            <div class="ekskul-photo">
-              <img
-                src="gambar/ekstrakulikuler_paskibraka_keberanian.png"
-                alt="Kegiatan Paskibra SMANCIS"
-                loading="lazy"
-              >
-              <span class="ekskul-number">12</span>
-            </div>
-            <div class="ekskul-card-body">
-              <span class="ekskul-category">Nasionalisme</span>
-              <h3>Paskibra</h3>
-              <p>Membentuk kedisiplinan, ketegasan, tanggung jawab, dan jiwa nasionalisme.</p>
-            </div>
-          </article>
-
+    <!-- FASILITAS -->
+    <section id="fasilitas" class="section section-tint">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">FASILITAS</span><h2>Dukungan Terbaik untuk Belajar</h2><p>Fasilitas modern untuk mendukung kenyamanan belajar seluruh siswa.</p></div>
+        <div class="facility-tabs" role="tablist" aria-label="Kategori fasilitas">
+          <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-tab="akademik">Akademik</button>
+          <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="olahraga">Olahraga & Seni</button>
+          <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab="penunjang">Penunjang</button>
+        </div>
+        <div id="content-akademik" class="tab-content facility-grid">
+          <article class="facility-card"><img src="gambar/fasilitas1.png" alt="Ruang kelas digital" loading="lazy"><div><h3>Ruang Kelas Digital</h3><p>Ruang belajar nyaman untuk mendukung pembelajaran interaktif dengan teknologi.</p></div></article>
+          <article class="facility-card"><img src="gambar/fasilitas2.png" alt="Laboratorium komputer" loading="lazy"><div><h3>Lab Komputer</h3><p>Mendukung pembelajaran komputer, ujian berbasis komputer, coding, dan multimedia.</p></div></article>
+          <article class="facility-card"><img src="gambar/fasilitas3.png" alt="Laboratorium IPA" loading="lazy"><div><h3>Laboratorium IPA</h3><p>Ruang praktik sains untuk eksperimen dan penguatan pemahaman konsep.</p></div></article>
+          <article class="facility-card"><img src="gambar/fasilitas4.png" alt="Perpustakaan Widya Aksara" loading="lazy"><div><h3>Perpustakaan Widya Aksara</h3><p>Ruang literasi untuk membaca, belajar mandiri, dan memperluas wawasan.</p></div></article>
+          <article class="facility-card"><img src="gambar/lag" alt="Laboratorium riset IPTEK" loading="lazy"><div><h3>Lab Riset IPTEK</h3><p>Ruang eksplorasi penelitian dan eksperimen siswa, termasuk kegiatan KIR.</p></div></article>
+        </div>
+        <div id="content-olahraga" class="tab-content facility-grid" hidden>
+          <article class="facility-card"><img src="gambar/fasilitas5.png" alt="Lapangan olahraga SMANCIS" loading="lazy"><div><h3>Smancis Sports Center</h3><p>Area kegiatan olahraga untuk mengembangkan kebugaran, sportivitas, dan kekompakan.</p></div></article>
+          <article class="facility-card"><img src="gambar/fasilitas6.png" alt="Auditorium utama" loading="lazy"><div><h3>Auditorium Utama</h3><p>Ruang kegiatan untuk seminar, pertunjukan, pertemuan, dan acara sekolah.</p></div></article>
+          <article class="facility-card"><img src="gambar/fasilitas7.png" alt="Studio seni dan musik" loading="lazy"><div><h3>Ruang Kreatif & Seni</h3><p>Wadah untuk latihan musik, tari, teater, dan pameran karya seni siswa.</p></div></article>
+        </div>
+        <div id="content-penunjang" class="tab-content facility-grid" hidden>
+          <article class="facility-card"><img src="gambar/fasilitas8.png" alt="Green Cafeteria" loading="lazy"><div><h3>Green Cafeteria</h3><p>Kantin sekolah yang mendukung kebiasaan makan bersih, sehat, dan tertib.</p></div></article>
+          <article class="facility-card"><img src="gambar/masjid-sekolah.jpg" alt="Masjid Al-Cendekia" loading="lazy"><div><h3>Masjid Al-Cendekia</h3><p>Tempat ibadah dan pembinaan karakter spiritual warga sekolah.</p></div></article>
+          <article class="facility-card"><img src="gambar/taman-sekolah.jpg" alt="Taman sekolah" loading="lazy"><div><h3>Taman Sekolah</h3><p>Ruang hijau untuk beristirahat, berinteraksi, dan menikmati lingkungan yang asri.</p></div></article>
         </div>
       </div>
+    </section>
 
-      <!-- Indikator dan Informasi Slider -->
-      <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
-        <p class="text-xs text-slate-500">
-          Geser untuk mengenal lebih banyak kegiatan SMANCIS
-        </p>
-
-        <div
-          id="ekskul-dots"
-          class="ekskul-dots"
-          aria-label="Pilih halaman ekstrakurikuler"
-        ></div>
+    <!-- EKSTRAKURIKULER SLIDER -->
+    <section id="ekskul" class="section ekskul-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">PENGEMBANGAN DIRI</span><h2>Temukan Minat dan Bakatmu</h2>
+          <p>Wadah pengembangan diri untuk belajar, berkarya, berkolaborasi, dan bertumbuh bersama.</p>
+        </div>
+        <div id="ekskul-carousel" class="ekskul-carousel" tabindex="0" aria-label="Slider kegiatan ekstrakurikuler">
+          <div class="ekskul-toolbar"><p><i class="fa-solid fa-circle-check"></i> Pilih kegiatan yang sesuai dengan minatmu</p><div class="ekskul-controls"><button id="ekskul-prev" class="ekskul-arrow" type="button" aria-label="Ekstrakurikuler sebelumnya"><i class="fa-solid fa-chevron-left"></i></button><button id="ekskul-next" class="ekskul-arrow" type="button" aria-label="Ekstrakurikuler berikutnya"><i class="fa-solid fa-chevron-right"></i></button></div></div>
+          <div class="ekskul-viewport"><div id="ekskul-track" class="ekskul-track">
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-pramuka.jpg" alt="Kegiatan Pramuka SMANCIS" loading="lazy"><span class="ekskul-number">01</span></div><div class="ekskul-card-body"><span class="ekskul-category">Karakter & Pengabdian</span><h3>Pramuka</h3><p>Melatih kedisiplinan, kemandirian, kepemimpinan, dan kerja sama melalui kegiatan kepramukaan.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-olahraga.jpg" alt="Kegiatan olahraga SMANCIS" loading="lazy"><span class="ekskul-number">02</span></div><div class="ekskul-card-body"><span class="ekskul-category">Olahraga</span><h3>Basket & Futsal</h3><p>Mengembangkan kebugaran, strategi permainan, sportivitas, dan kekompakan tim.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-seni-musik.jpg" alt="Kegiatan seni dan musik SMANCIS" loading="lazy"><span class="ekskul-number">03</span></div><div class="ekskul-card-body"><span class="ekskul-category">Seni & Budaya</span><h3>Seni dan Musik</h3><p>Menjadi ruang untuk mengekspresikan kreativitas melalui musik, tari, dan pertunjukan.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-pemrograman.jpg" alt="Kegiatan pemrograman SMANCIS" loading="lazy"><span class="ekskul-number">04</span></div><div class="ekskul-card-body"><span class="ekskul-category">Akademik & Teknologi</span><h3>Pemrograman</h3><p>Belajar logika komputasi, membuat website, mengembangkan aplikasi, dan memecahkan masalah.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-desain-grafis.jpg" alt="Kegiatan desain grafis SMANCIS" loading="lazy"><span class="ekskul-number">05</span></div><div class="ekskul-card-body"><span class="ekskul-category">Media Kreatif</span><h3>Desain Grafis</h3><p>Mengolah ide menjadi poster, identitas visual, ilustrasi, dan konten digital yang menarik.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-kir.jpg" alt="Kegiatan Karya Ilmiah Remaja SMANCIS" loading="lazy"><span class="ekskul-number">06</span></div><div class="ekskul-card-body"><span class="ekskul-category">Akademik & Sains</span><h3>Karya Ilmiah Remaja (KIR)</h3><p>Mengasah rasa ingin tahu melalui penelitian, eksperimen, penulisan, dan presentasi ilmiah.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-pmr.jpg" alt="Kegiatan PMR SMANCIS" loading="lazy"><span class="ekskul-number">07</span></div><div class="ekskul-card-body"><span class="ekskul-category">Kemanusiaan</span><h3>PMR</h3><p>Belajar pertolongan pertama, kepedulian sosial, kesehatan remaja, dan kesiapsiagaan.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-paskibra.jpg" alt="Kegiatan Paskibra SMANCIS" loading="lazy"><span class="ekskul-number">08</span></div><div class="ekskul-card-body"><span class="ekskul-category">Nasionalisme</span><h3>Paskibra</h3><p>Membentuk kedisiplinan, ketegasan, kekompakan, dan rasa cinta tanah air.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-bahasa-inggris.jpg" alt="Kegiatan klub bahasa Inggris SMANCIS" loading="lazy"><span class="ekskul-number">09</span></div><div class="ekskul-card-body"><span class="ekskul-category">Bahasa & Komunikasi</span><h3>English Society</h3><p>Melatih kemampuan bahasa Inggris melalui percakapan, debat, pidato, dan presentasi.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-jurnalistik.jpg" alt="Kegiatan jurnalistik SMANCIS" loading="lazy"><span class="ekskul-number">10</span></div><div class="ekskul-card-body"><span class="ekskul-category">Media & Informasi</span><h3>Jurnalistik & Fotografi</h3><p>Mengembangkan keterampilan menulis berita, fotografi, wawancara, dan dokumentasi.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-paduan-suara.jpg" alt="Kegiatan paduan suara SMANCIS" loading="lazy"><span class="ekskul-number">11</span></div><div class="ekskul-card-body"><span class="ekskul-category">Seni Musik</span><h3>Paduan Suara</h3><p>Melatih vokal, harmoni, kepekaan musikal, dan kerja sama dalam penampilan kelompok.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-pencak-silat.jpg" alt="Kegiatan pencak silat SMANCIS" loading="lazy"><span class="ekskul-number">12</span></div><div class="ekskul-card-body"><span class="ekskul-category">Bela Diri</span><h3>Pencak Silat</h3><p>Mengembangkan kebugaran, konsentrasi, pengendalian diri, dan penghormatan kepada sesama.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-olimpiade.jpg" alt="Kegiatan klub olimpiade SMANCIS" loading="lazy"><span class="ekskul-number">13</span></div><div class="ekskul-card-body"><span class="ekskul-category">Akademik</span><h3>Olimpiade Club</h3><p>Memperdalam materi dan strategi pemecahan soal untuk persiapan kompetisi akademik.</p></div></article>
+            <article class="ekskul-card"><div class="ekskul-photo"><img src="gambar/ekskul-teater.jpg" alt="Kegiatan teater SMANCIS" loading="lazy"><span class="ekskul-number">14</span></div><div class="ekskul-card-body"><span class="ekskul-category">Seni Pertunjukan</span><h3>Teater & Tari</h3><p>Mengasah ekspresi, rasa percaya diri, kerja tim, dan apresiasi terhadap seni pertunjukan.</p></div></article>
+          </div></div>
+          <div id="ekskul-dots" class="ekskul-dots" aria-label="Navigasi halaman ekstrakurikuler"></div>
+          <p class="slider-hint"><i class="fa-solid fa-hand-pointer"></i> Geser kartu atau gunakan tombol panah untuk melihat kegiatan lainnya.</p>
+        </div>
       </div>
-
-    </div>
-  </div>
-</section>
-```
+    </section>
 
     <!-- PPDB -->
-    <section id="ppdb" class="px-4 py-16 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-7xl overflow-hidden rounded-3xl bg-gradient-to-r from-green-900 to-green-700 p-8 text-white sm:p-12 lg:flex lg:items-center lg:justify-between">
-
-        <div class="max-w-2xl">
-          <span class="text-sm font-bold uppercase tracking-widest text-green-200">
-            Penerimaan Peserta Didik Baru
-          </span>
-
-          <h2 class="mt-3 text-3xl font-extrabold sm:text-4xl">
-            Mulai Langkah Masa Depanmu Bersama SMANCIS
-          </h2>
-
-          <p class="mt-4 leading-relaxed text-green-50/85">
-            Informasi jadwal, persyaratan, dan proses pendaftaran dapat ditambahkan pada bagian ini.
-          </p>
-        </div>
-
-        <a
-          href="#kontak"
-          class="mt-7 inline-flex shrink-0 items-center justify-center rounded-xl bg-white px-7 py-4 font-extrabold text-green-900 transition hover:bg-green-50 lg:mt-0"
-        >
-          Tanya Informasi
-          <i class="fa-solid fa-arrow-right ml-2"></i>
-        </a>
-
+    <section id="ppdb" class="section ppdb-section">
+      <div class="container ppdb-layout">
+        <div><span class="eyebrow eyebrow-light">PENERIMAAN PESERTA DIDIK BARU</span><h2>Langkah Pertama Menuju Masa Depan Gemilang</h2><p>Kenali jalur pendaftaran dan siapkan dokumen yang dibutuhkan. Informasi di bawah merupakan gambaran umum dan perlu disesuaikan dengan ketentuan PPDB resmi yang berlaku.</p><a class="button button-light" href="#kontak">Hubungi Humas <i class="fa-solid fa-arrow-right"></i></a></div>
+        <div class="ppdb-info"><h3>Jalur Pendaftaran</h3><ul><li><i class="fa-solid fa-award"></i><span><strong>Jalur Prestasi</strong><small>Rapor atau sertifikat lomba.</small></span></li><li><i class="fa-solid fa-location-dot"></i><span><strong>Jalur Zonasi</strong><small>Ketentuan berdasarkan wilayah tempat tinggal.</small></span></li><li><i class="fa-solid fa-hand-holding-heart"></i><span><strong>Jalur Afirmasi</strong><small>Sesuai ketentuan bantuan dan afirmasi pendidikan.</small></span></li><li><i class="fa-solid fa-people-arrows-left-right"></i><span><strong>Perpindahan Tugas Orang Tua</strong><small>Dokumen pendukung sesuai ketentuan resmi.</small></span></li></ul><h3>Dokumen yang Umumnya Disiapkan</h3><p>Kartu Keluarga, akta kelahiran, surat keterangan lulus, rapor, serta sertifikat prestasi jika diperlukan.</p></div>
       </div>
     </section>
 
+    <!-- KONTAK -->
+    <section id="kontak" class="section section-white">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">HUBUNGI KAMI</span><h2>Mari Terhubung dengan SMANCIS</h2><p>Silakan hubungi sekolah untuk informasi pendidikan dan pendaftaran.</p></div>
+        <div class="contact-grid">
+          <article class="contact-card"><span><i class="fa-solid fa-location-dot"></i></span><div><h3>Alamat</h3><p>Jl. Cipta Cendekia No. 12, Lingkar Edukasi, Kota Utama.</p></div></article>
+          <article class="contact-card"><span><i class="fa-solid fa-phone"></i></span><div><h3>Telepon / Fax</h3><p>(021) 555-0198</p></div></article>
+          <article class="contact-card"><span><i class="fa-brands fa-whatsapp"></i></span><div><h3>WhatsApp Humas</h3><p>+62 812-3456-7890</p></div></article>
+          <article class="contact-card"><span><i class="fa-solid fa-envelope"></i></span><div><h3>Email Resmi</h3><p>info@sman1ciptacendekia.sch.id</p></div></article>
+          <article class="contact-card"><span><i class="fa-brands fa-instagram"></i></span><div><h3>Instagram</h3><p>@sman1ciptacendekia</p></div></article>
+          <article class="contact-card"><span><i class="fa-brands fa-youtube"></i></span><div><h3>YouTube</h3><p>Smancis TV Official</p></div></article>
+        </div>
+        <p class="notice"><i class="fa-solid fa-circle-info"></i> Nama, alamat, kontak, prestasi, dan program pada halaman ini mengikuti materi contoh yang diberikan. Pastikan seluruh informasi diverifikasi sebelum website dipublikasikan.</p>
+      </div>
+    </section>
   </main>
 
-  <!-- Footer / Kontak -->
-  <footer id="kontak" class="bg-green-950 py-12 text-green-50">
-    <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
-
-      <!-- Identitas Sekolah -->
-      <div>
-        <div class="mb-4 flex items-center gap-3">
-          <img
-            src="gambar/favicon.png"
-            alt="Logo SMA Negeri 1 Cipta Cendekia"
-            class="h-12 w-12 rounded-lg bg-white p-1 object-contain"
-            onerror="this.style.display='none'"
-          >
-          <span class="text-xl font-extrabold text-white">SMANCIS</span>
-        </div>
-
-        <p class="max-w-sm text-sm leading-relaxed text-green-100/75">
-          SMA Negeri 1 Cipta Cendekia. Membentuk generasi yang cerdas, berkarakter, dan siap menghadapi masa depan.
-        </p>
-      </div>
-
-      <!-- Navigasi Footer -->
-      <div>
-        <h3 class="mb-4 font-extrabold text-white">Navigasi</h3>
-
-        <div class="grid grid-cols-2 gap-2 text-sm text-green-100/75">
-          <a class="hover:text-white" href="#beranda">Beranda</a>
-          <a class="hover:text-white" href="#tentang">Tentang</a>
-          <a class="hover:text-white" href="#fasilitas">Fasilitas</a>
-          <a class="hover:text-white" href="#ekskul">Ekstrakurikuler</a>
-          <a class="hover:text-white" href="#ppdb">PPDB</a>
-        </div>
-      </div>
-
-      <!-- Kontak Sekolah -->
-      <div>
-        <h3 class="mb-4 font-extrabold text-white">Kontak Sekolah</h3>
-
-        <p class="mb-2 text-sm text-green-100/75">
-          <i class="fa-solid fa-location-dot mr-2"></i>
-          Alamat Kampus: Jl. Cipta Cendekia No. 12, Lingkar Edukasi, Kota Utama.
-        </p>
-
-        <p class="mb-2 text-sm text-green-100/75">
-          <i class="fa-solid fa-envelope mr-2"></i>
-          info@sman1ciptacendekia.sch.id
-        </p>
-
-        <p class="text-sm text-green-100/75">
-          <i class="fa-solid fa-phone mr-2"></i>
-          (021) 555-0198
-        </p>
-      </div>
-
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <a class="brand brand-footer" href="#beranda"><img src="gambar/favicon.png" alt="Logo SMANCIS" onerror="this.style.display='none'"><span><strong>SMANCIS</strong><small>SMA Negeri 1 Cipta Cendekia</small></span></a>
+      <p>Cerdas Berkarakter, Menginspirasi Dunia.</p>
+      <div class="social-links"><a href="#kontak" aria-label="Instagram SMANCIS"><i class="fa-brands fa-instagram"></i></a><a href="#kontak" aria-label="YouTube SMANCIS"><i class="fa-brands fa-youtube"></i></a><a href="#kontak" aria-label="Email SMANCIS"><i class="fa-solid fa-envelope"></i></a></div>
     </div>
-
-    <!-- Copyright -->
-    <div class="mx-auto mt-10 max-w-7xl border-t border-green-800 px-4 pt-6 text-center text-xs text-green-100/60 sm:px-6 lg:px-8">
-      © <span id="year"></span> SMA Negeri 1 Cipta Cendekia. Semua hak dilindungi.
-    </div>
+    <div class="footer-bottom"><div class="container">© <span id="year"></span> SMA Negeri 1 Cipta Cendekia. Semua hak dilindungi.</div></div>
   </footer>
 
-  <!-- JavaScript Eksternal -->
   <script src="script.js" defer></script>
-
 </body>
 </html>
